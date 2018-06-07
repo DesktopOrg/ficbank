@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import Model.Conta;
 import views.Dashboard;
 
 /**
@@ -13,15 +14,15 @@ import views.Dashboard;
  */
 public class DashboardController {
     
-    private Usuario usuario;
+    private Conta conta;
 
-    public DashboardController(Usuario usuario) {
-        this.usuario = usuario;
+    public DashboardController(Conta conta) {
+        this.conta = conta;
     }
     
     public boolean goToDashboard() {
         Dashboard dashboard = new Dashboard();
-        dashboard.setUsuario(usuario);
+        dashboard.setConta(conta);
         dashboard.setVisible(true);
         return true;
     }

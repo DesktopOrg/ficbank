@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import Model.Conta;
 import javax.swing.JOptionPane;
 import views.Dashboard;
 
@@ -13,20 +14,20 @@ import views.Dashboard;
  * @author kassia
  */
 public class LoginController {
-    private Usuario usuario;
+    private Conta conta;
 
-    public LoginController(Usuario usuario) {
-        this.usuario = usuario;
+    public LoginController(Conta conta) {
+        this.conta = conta;
     }
     
     public boolean login(){
-        UsuarioDAO dao = new UsuarioDAO();
+        ContaDAO dao = new ContaDAO();
         
         if(!login.isEmpty()){
-            usuario = dao.findUsuario(usuario.getLogin());
-            if(usuario != null){
-                if(checkLogin(usuario.getLogin(), usuario.getSenha())){
-                    DashboardController dash = new DashboardController(usuario);
+            conta = dao.findUsuario(conta.getUser());
+            if(conta != null){
+                if(checkLogin(conta.getUser(), conta.getSenha())){
+                    DashboardController dash = new DashboardController(conta);
                     return dash.goToDashboard();
                 }else{
                     JOptionPane.showMessageDialog(null, "Dados Inválidos! Tente Novamente.", "Erro Login", JOptionPane.ERROR_MESSAGE);
@@ -40,22 +41,22 @@ public class LoginController {
         return false;
     }
     
-    public boolean checkLogin(String login, String senha){
-        return login.equals(getUsuario().getLogin()) && checkSenha(senha);
+    public boolean checkLogin(String user, String senha){
+        return user.equals(getConta().getUser()) && checkSenha(senha);
     }
     
     public boolean checkSenha(String senha){
-        if(!senha.equals(getUsuario().getSenha())){
+        if(!senha.equals(getConta().getSenha())){
             JOptionPane.showMessageDialog(null, "Senha Inválida! Tente Novamente.", "Erro Login", JOptionPane.ERROR_MESSAGE);
         }
-        return senha.equals(getUsuario().getSenha());
+        return senha.equals(getConta().getSenha());
     }
     
-    private Usuario getUsuario() {
-        return usuario;
+    private Conta getConta() {
+        return conta;
     }
     
-    public void setUsuario(Usuario usuario){
-        this.usuario = usuario;
+    public void setConta(Conta conta){
+        this.conta = conta;
     }
 }

@@ -128,20 +128,20 @@ public class Dashboard extends javax.swing.JFrame {
         pnl_pagamentosLayout.setHorizontalGroup(
             pnl_pagamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_pagamentosLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(pnl_pagamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(pnl_pagamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_pagamentos)
-                    .addComponent(icon_pagamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                    .addComponent(icon_pagamentos))
+                .addGap(15, 15, 15))
         );
         pnl_pagamentosLayout.setVerticalGroup(
             pnl_pagamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_pagamentosLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(icon_pagamentos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(icon_pagamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_pagamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(26, 26, 26))
         );
 
         pnl_name.setBackground(new java.awt.Color(40, 110, 180));
@@ -198,11 +198,11 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(pnl_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pnl_extrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnl_pagamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,18 +258,15 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JLabel icon_extrato;
-    private javax.swing.JLabel icon_extrato1;
     private javax.swing.JLabel icon_pagamentos;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lbl_extrato;
-    private javax.swing.JLabel lbl_extrato1;
     private javax.swing.JLabel lbl_nome;
     private javax.swing.JLabel lbl_pagamentos;
     private javax.swing.JLabel lbl_saldo;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel menu;
     private javax.swing.JPanel pnl_extrato;
-    private javax.swing.JPanel pnl_extrato1;
     private javax.swing.JPanel pnl_name;
     private javax.swing.JPanel pnl_pagamentos;
     private javax.swing.JLabel sair;
