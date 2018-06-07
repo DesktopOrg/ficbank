@@ -64,7 +64,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
                 Conta conta = new Conta();
                 conta.setCo_id(rs.getInt(1));
                 conta.setUser(rs.getString("user"));
-                conta.setSenha(rs.getString("email"));
+                conta.setSenha(rs.getString("senha"));
                 conta.setSaldo(rs.getDouble("saldo"));
                 conta.setAtivo(rs.getBoolean("ativo"));
                 conta.setCl_id(rs.getInt("cl_id"));
@@ -79,34 +79,17 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
 
     @Override
     public List<Conta> getAllConta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Conta getUmaConta(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-}
-/*
-    @Override
-    public List<Cliente> getAllCliente(){
         list = new ArrayList<>();
         ResultSet rs = this.getAll();
         try {
             while(rs.next()){
-                Cliente conta = new Cliente();
-                conta.setCl_id(rs.getInt(1));
-                conta.setName(rs.getString("name"));
-                conta.setEmail(rs.getString("email"));
-                conta.setTelefone(rs.getString("telefone"));
-                conta.setEstado(rs.getString("estado"));
-                conta.setCidade(rs.getString("cidade"));
-                conta.setLogradouro(rs.getString("logradouro"));
-                conta.setNumero(rs.getString("numero"));
-                conta.setBairro(rs.getString("bairro"));
-                conta.setCpf(rs.getString("cpf"));
+                Conta conta = new Conta();
+                conta.setCo_id(rs.getInt(1));
+                conta.setUser(rs.getString("user"));
+                conta.setSenha(rs.getString("senha"));
+                conta.setSaldo(rs.getDouble("saldo"));
                 conta.setAtivo(rs.getBoolean("ativo"));
+                conta.setCl_id(rs.getInt("cl_id"));
                 list.add(conta);
             }
             return list;
@@ -115,28 +98,23 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         }
         return null;
     }
-    
+
     @Override
-    public Cliente getUmCliente(int id){
-        ResultSet rs = this.getOne(id);
-        Cliente conta = new Cliente();
+    public Conta getUmaConta(int id) {
+       ResultSet rs = this.getOne(id);
+        Conta conta = new Conta();
         try {
-            conta.setCl_id(rs.getInt(1));
-            conta.setName(rs.getString("name"));
-            conta.setEmail(rs.getString("email"));
-            conta.setTelefone(rs.getString("telefone"));
-            conta.setEstado(rs.getString("estado"));
-            conta.setCidade(rs.getString("cidade"));
-            conta.setLogradouro(rs.getString("logradouro"));
-            conta.setNumero(rs.getString("numero"));
-            conta.setBairro(rs.getString("bairro"));
-            conta.setCpf(rs.getString("cpf"));
-            conta.setAtivo(rs.getBoolean("ativo"));
+                conta.setCo_id(rs.getInt(1));
+                conta.setUser(rs.getString("user"));
+                conta.setSenha(rs.getString("senha"));
+                conta.setSaldo(rs.getDouble("saldo"));
+                conta.setAtivo(rs.getBoolean("ativo"));
+                conta.setCl_id(rs.getInt("cl_id"));
             return conta;
         } catch (SQLException ex) {
             System.out.println("Erro ao retornar um curso pelo id: " + ex.getMessage());
         }
         return null;
     }
-
-*/
+    
+}
