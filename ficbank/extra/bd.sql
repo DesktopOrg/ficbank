@@ -21,8 +21,8 @@ CREATE TABLE CONTA(
 	user VARCHAR(20) NOT NULL,
     senha VARCHAR(20) NOT NULL,
     saldo DOUBLE,
-    Cli_id INTEGER NOT NULL,
-	Con_ativa boolean,
+    cl_id INTEGER NOT NULL,
+	ativo boolean,
 	PRIMARY KEY (co_id, user)
 )DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
