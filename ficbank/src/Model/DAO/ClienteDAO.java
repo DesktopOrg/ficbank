@@ -9,6 +9,8 @@ import Configurations.ConfigurationsMySQL;
 import DataBase.DataBaseGeneric;
 import Model.Cliente;
 import Model.Interfaces.ImplementCliente;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,48 +33,63 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
         Map<Object, Object> mapObj = new HashMap<>();
         mapObj.put("name", cliente.getName());
         mapObj.put("telefone", cliente.getTelefone());
-        
+        mapObj.put("email", cliente.getEmail());
+        mapObj.put("estado", cliente.getEstado());
+        mapObj.put("cidade", cliente.getCidade());
+        mapObj.put("logradouro", cliente.getLogradouro());
+        mapObj.put("numero", cliente.getNumero());
+        mapObj.put("bairro", cliente.getBairro());
+        mapObj.put("cpf", cliente.getCpf());
+        mapObj.put("ativo", cliente.isAtivo());
         
         this.genericInsert(mapObj);
     }
     
-    public void update(Cliente cliente);
     
-    public void delete(int id);
-    
-    public List<Cliente> getClientePorNome(String nome);
-    
-    public List<Cliente> getAllCliente();
-    
-    public Cliente getUmCliente(int id);
-    /*
-
     @Override
-    public void update(Course course){
+    public void update(Cliente cliente){
         Map<Object, Object> mapObj = new HashMap<>();
         Map<Object, Object> mapConditions = new HashMap<>();
-        mapObj.put("name", course.getName());
-        mapConditions.put("id", course.getId());
+        mapObj.put("name", cliente.getName());
+        mapObj.put("telefone", cliente.getTelefone());
+        mapObj.put("email", cliente.getEmail());
+        mapObj.put("estado", cliente.getEstado());
+        mapObj.put("cidade", cliente.getCidade());
+        mapObj.put("logradouro", cliente.getLogradouro());
+        mapObj.put("numero", cliente.getNumero());
+        mapObj.put("bairro", cliente.getBairro());
+        mapObj.put("cpf", cliente.getCpf());
+        mapObj.put("ativo", cliente.isAtivo());
+        mapConditions.put("cl_id", cliente.getCl_id());
         this.genericUpdate(mapObj, mapConditions);
     }
-
+    
     @Override
-    public void delete(int id) {
-        Map<Object, Object> mapConditions = new HashMap<>();
-        mapConditions.put("id", id);
+    public void delete(int id){
+    Map<Object, Object> mapConditions = new HashMap<>();
+        mapConditions.put("cl_id", id);
         this.genericDelete(mapConditions);
     }
-
+    
     @Override
-    public List<Course> getCourseByName(String name){
+    public List<Cliente> getClientePorNome(String nome){
         this.list = new ArrayList<>();
         try {
-            ResultSet rs = this.getLike("name", name);
+            ResultSet rs = this.getLike("name", nome);
             while (rs.next()) { 
-                Course course = new Course();
-                course.setId(rs.getInt(1));
-                course.setName(rs.getString("name"));
-                list.add(course);
+                Cliente cliente = new Cliente();
+                cliente.setCl_id(rs.getInt(1));
+                cliente.setName(rs.getString("name"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setTelefone(rs.getString("telefone"));
+                cliente.setEstado(rs.getString("estado"));
+                cliente.setCidade(rs.getString("cidade"));
+                cliente.setLogradouro(rs.getString("logradouro"));
+                cliente.setNumero(rs.getString("numero"));
+                cliente.setBairro(rs.getString("bairro"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setAtivo(rs.getBoolean("ativo"));
+                list.add(cliente);
             }
             return list;
         } catch (SQLException ex){
@@ -80,17 +97,26 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
         }
         return null;
     }
-
+    
     @Override
-    public List<Course> getAllCourse(){
+    public List<Cliente> getAllCliente(){
         list = new ArrayList<>();
         ResultSet rs = this.getAll();
         try {
             while(rs.next()){
-                Course course = new Course();
-                course.setId(rs.getInt(1));
-                course.setName(rs.getString("name"));
-                list.add(course);
+                Cliente cliente = new Cliente();
+                cliente.setCl_id(rs.getInt(1));
+                cliente.setName(rs.getString("name"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setTelefone(rs.getString("telefone"));
+                cliente.setEstado(rs.getString("estado"));
+                cliente.setCidade(rs.getString("cidade"));
+                cliente.setLogradouro(rs.getString("logradouro"));
+                cliente.setNumero(rs.getString("numero"));
+                cliente.setBairro(rs.getString("bairro"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setAtivo(rs.getBoolean("ativo"));
+                list.add(cliente);
             }
             return list;
         } catch (SQLException ex) {
@@ -100,22 +126,25 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
     }
     
     @Override
-    public Course getOneCourse(int id){
+    public Cliente getUmCliente(int id){
         ResultSet rs = this.getOne(id);
-        Course course = new Course();
+        Cliente cliente = new Cliente();
         try {
-            course.setId(rs.getInt(1));
-            course.setName(rs.getString("name"));
-            return course;
+            cliente.setCl_id(rs.getInt(1));
+            cliente.setName(rs.getString("name"));
+            cliente.setEmail(rs.getString("email"));
+            cliente.setTelefone(rs.getString("telefone"));
+            cliente.setEstado(rs.getString("estado"));
+            cliente.setCidade(rs.getString("cidade"));
+            cliente.setLogradouro(rs.getString("logradouro"));
+            cliente.setNumero(rs.getString("numero"));
+            cliente.setBairro(rs.getString("bairro"));
+            cliente.setCpf(rs.getString("cpf"));
+            cliente.setAtivo(rs.getBoolean("ativo"));
+            return cliente;
         } catch (SQLException ex) {
             System.out.println("Erro ao retornar um curso pelo id: " + ex.getMessage());
         }
         return null;
     }
-}
-
-    
-    
-    
-    */
 }
