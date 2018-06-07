@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author kamimuraf
  */
-public class Cliente {
+public class Cliente implements Serializable{
     private int cl_id;
     private String name;
     private String telefone;
@@ -22,6 +24,20 @@ public class Cliente {
     private String cpf;
     private boolean ativo;
 
+    public Cliente(int cl_id, String name, String telefone, String email, String estado, String cidade, String logradouro, String numero, String bairro, String cpf, boolean ativo) {
+        this.cl_id = cl_id;
+        this.name = name;
+        this.telefone = telefone;
+        this.email = email;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cpf = cpf;
+        this.ativo = ativo;
+    }
+       
     public int getCl_id() {
         return cl_id;
     }
