@@ -6,6 +6,7 @@
 package controllers;
 
 import Model.Conta;
+import Model.DAO.ContaDAO;
 import javax.swing.JOptionPane;
 import views.Dashboard;
 
