@@ -17,6 +17,14 @@ public class Conta {
     private int cl_id;
     private boolean ativo;
 
+    public Conta(String user, String senha) {
+        this.user = user;
+        this.senha = senha;
+    }
+
+    public Conta() {
+    }
+    
     public int getCo_id() {
         return co_id;
     }

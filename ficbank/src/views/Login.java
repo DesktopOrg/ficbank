@@ -5,7 +5,11 @@
  */
 package views;
 
+import Model.Conta;
+import Model.DAO.ContaDAO;
+import controllers.ClienteController;
 import controllers.ContaController;
+import controllers.NavigateController;
 
 /**
  *
@@ -163,11 +167,14 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-        /*// TODO add your handling code here:
+        // TODO add your handling code here:
         boolean loginChecked = true;
-        Usuario user = new Usuario(txt_login.getText(), new String(txt_senha.getPassword()));
-        ContaController login = new ContaController(user);
-        login.login();*/
+        Conta conta = new Conta(txt_login.getText(), new String(txt_senha.getPassword()));
+        ContaController login = new ContaController(conta);
+        if(login.login() != null){
+            NavigateController navigate = new NavigateController(login.login());
+            navigate.goToDashboard();
+        }
     }//GEN-LAST:event_btnAcessarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

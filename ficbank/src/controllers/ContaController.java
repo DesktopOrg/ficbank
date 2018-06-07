@@ -21,16 +21,18 @@ public class ContaController {
         this.conta = conta;
     }
     
-    public boolean login(){
+    public Conta login(){
         ContaDAO dao = new ContaDAO();
         
-        if(!login.isEmpty()){
+        if(!conta.getUser().isEmpty()){
             conta = (Conta) dao.getContaPorUser(conta.getUser());
             if(conta != null){
                 if(checkLogin(conta.getUser(), conta.getSenha())){
-                    DashboardController dash = new DashboardController(conta);
-                    return dash.goToDashboard();
-                }else{
+                    NavigateController dash = new NavigateController(conta);
+                    if(dash.goToDashboard()) {
+                        return conta;
+                    }
+                }else {
                     JOptionPane.showMessageDialog(null, "Dados Inválidos! Tente Novamente.", "Erro Login", JOptionPane.ERROR_MESSAGE);
                 }
             }else{
@@ -39,7 +41,7 @@ public class ContaController {
         }else{
             JOptionPane.showMessageDialog(null, "Login Inválido! Tente Novamente.", "Erro Login", JOptionPane.ERROR_MESSAGE);
         }
-        return false;
+        return null;
     }
     
     public boolean checkLogin(String user, String senha){

@@ -5,6 +5,8 @@
  */
 package views;
 
+import Model.Conta;
+
 /**
  *
  * @author kassia
@@ -318,4 +320,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_pagamentos;
     private javax.swing.JLabel sair;
     // End of variables declaration//GEN-END:variables
+
+    public void setConta(Conta conta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

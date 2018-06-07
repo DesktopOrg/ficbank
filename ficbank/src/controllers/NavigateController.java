@@ -12,11 +12,11 @@ import views.Dashboard;
  *
  * @author kassia
  */
-public class DashboardController {
+public class NavigateController {
     
     private Conta conta;
 
-    public DashboardController(Conta conta) {
+    public NavigateController(Conta conta) {
         this.conta = conta;
     }
     
