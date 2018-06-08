@@ -5,6 +5,7 @@
  */
 package Model.DAO;
 
+import Configurations.ConfigurationsMySQL;
 import DataBase.DataBaseGeneric;
 import Model.Conta;
 import Model.Interfaces.ImplementConta;
@@ -21,7 +22,9 @@ import java.util.Map;
  */
 public class ContaDAO extends DataBaseGeneric implements ImplementConta{
      public ArrayList<Conta> list;
-     
+     public ContaDAO(){
+        super(new ConfigurationsMySQL(), "conta");
+    }
     @Override
     public void insert(Conta conta) {
         Map<Object, Object> mapObj = new HashMap<>();
