@@ -709,11 +709,13 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_editarActionPerformed
 
     private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
-        // TODO add your handling code here:
+        controller.delete();
+        controller.setTabel();
+        controller.reset();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_excluirActionPerformed
 
     private void btn_procurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_procurarActionPerformed
-        controller.getData();        // TODO add your handling code here:
+           controller.getData();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_procurarActionPerformed
 
     private void txt_nomeSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeSearchActionPerformed
