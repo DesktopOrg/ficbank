@@ -25,7 +25,7 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
     public ArrayList<Cliente> list;
     
     public ClienteDAO(){
-        super(new ConfigurationsMySQL(), "FIKBANK");
+        super(new ConfigurationsMySQL(), "cliente");
     }
     
     @Override

@@ -8,7 +8,9 @@ package controllers;
 import Model.Cliente;
 import Model.DAO.ClienteDAO;
 import Model.Interfaces.ImplementCliente;
+import Model.Tabel.TableModelCliente;
 import java.util.List;
+import javax.swing.JOptionPane;
 import views.CadastroCliente;
 import views.teste;
 
@@ -58,6 +60,7 @@ public class ClienteController {
             panel.getTxt_telefone().setText(list.get(row).getTelefone());
             panel.getTxt_estado().setText(list.get(row).getEstado());
             panel.getTxt_cidade().setText(list.get(row).getCidade());
+            panel.getTxt_logradouro().setText(list.get(row).getLogradouro());
             panel.getTxt_numero().setText(list.get(row).getNumero());
             panel.getTxt_bairro().setText(list.get(row).getBairro());
             panel.getTxt_cpf().setText(list.get(row).getCpf());
@@ -65,7 +68,7 @@ public class ClienteController {
         }
     }
     
-    public void insert(){
+     public void insert(){
         Cliente cliente = new Cliente();
         cliente.setName(panel.getTxt_nome().getText());
         cliente.setEmail(panel.getTxt_email().getText());
@@ -74,6 +77,7 @@ public class ClienteController {
         cliente.setCidade(panel.getTxt_cidade().getText());
         cliente.setLogradouro(panel.getTxt_logradouro().getText());
         cliente.setNumero(panel.getTxt_numero().getText());
+        cliente.setBairro(panel.getTxt_bairro().getText());
         cliente.setCpf(panel.getTxt_cpf().getText());
         cliente.setAtivo(panel.getChkAtivo().isSelected());
         implementCliente.insert(cliente);
@@ -81,40 +85,40 @@ public class ClienteController {
     
     public void update(){
         Cliente cliente = new Cliente();
-        cliente.setId(Integer.parseInt(panel.getTxtId().getText()));
-        cliente.setName(panel.getTxtName().getText());
-        implementCliente.update(cliente);
-    }
-}
-/*  
-    public void update(){
-        Cliente cliente = new Cliente();
-        cliente.setId(Integer.parseInt(panel.getTxtId().getText()));
-        cliente.setName(panel.getTxtName().getText());
+        cliente.setName(panel.getTxt_nome().getText());
+        cliente.setEmail(panel.getTxt_email().getText());
+        cliente.setTelefone(panel.getTxt_telefone().getText());
+        cliente.setEstado(panel.getTxt_estado().getText());
+        cliente.setCidade(panel.getTxt_cidade().getText());
+        cliente.setLogradouro(panel.getTxt_logradouro().getText());
+        cliente.setNumero(panel.getTxt_numero().getText());
+        cliente.setBairro(panel.getTxt_bairro().getText());
+        cliente.setCpf(panel.getTxt_cpf().getText());
+        cliente.setAtivo(panel.getChkAtivo().isSelected());
         implementCliente.update(cliente);
     }
     
     public void delete(){
-        if (panel.getTxtId().getText().trim().isEmpty()){
+        if (panel.getTxt_id().getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(panel, "Sem dados para excluir.",null, JOptionPane.ERROR_MESSAGE);
             return;
         }
-        int row = Integer.parseInt(panel.getTxtId().getText());
+        int row = Integer.parseInt(panel.getTxt_id().getText());
         implementCliente.delete(row);
     }
     
     public void getData(){
-        if (panel.getTxtName().getText().trim().isEmpty()){
+        if (panel.getTxt_nomeSearch().getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(panel, "Digite um nome de curso para buscar.", null, JOptionPane.WARNING_MESSAGE);
             return;
         }
-        String name = panel.getTxtName().getText();
-        implementCliente.getClienteByName(name);
+        String name = panel.getTxt_nome().getText();
+        implementCliente.getClientePorNome(name);
         this.filterTable(name);
     }
-
+    
     public void filterTable(String name){
-        list = implementCliente.getClienteByName(name);
-        panel.getTabelCliente().setModel(new TabelModelCliente(list));
+        list = implementCliente.getClientePorNome(name);
+        panel.getTableCliente().setModel(new TableModelCliente(list));
     }
-*/
+}

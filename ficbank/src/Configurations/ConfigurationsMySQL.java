@@ -16,7 +16,7 @@ public class ConfigurationsMySQL extends Configurations {
             super.USER = "root";
             super.PASS = "senhaSQL";
             super.PORT = "3306";
-            super.BASE = "FICBANK";
+            super.BASE = "ficbank";
             super.DRIV = "com.mysql.jdbc.Driver";
         }
 }

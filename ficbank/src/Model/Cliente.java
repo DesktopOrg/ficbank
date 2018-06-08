@@ -37,6 +37,10 @@ public class Cliente implements Serializable{
         this.cpf = cpf;
         this.ativo = ativo;
     }
+
+    public Cliente() {
+       
+    }
        
     public int getCl_id() {
         return cl_id;
