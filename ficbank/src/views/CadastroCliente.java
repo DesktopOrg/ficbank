@@ -74,6 +74,10 @@ public class CadastroCliente extends javax.swing.JFrame {
         return txt_telefone;
     }
 
+    public JTextField getTxt_nomeSearch() {
+        return txt_nomeSearch;
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,12 +111,18 @@ public class CadastroCliente extends javax.swing.JFrame {
         txt_cpf = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         chkAtivo = new javax.swing.JCheckBox();
-        button1 = new java.awt.Button();
         jLabel11 = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         TableCliente = new javax.swing.JTable();
+        btn_salvar = new java.awt.Button();
+        btn_editar = new java.awt.Button();
+        btn_excluir = new java.awt.Button();
+        btn_procurar = new java.awt.Button();
+        txt_nomeSearch = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        btn_excluir1 = new java.awt.Button();
         menu = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         sair = new javax.swing.JLabel();
@@ -270,13 +280,6 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
 
-        button1.setLabel("Salvar");
-        button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
-            }
-        });
-
         jLabel11.setFont(jLabel11.getFont().deriveFont(jLabel11.getFont().getSize()+10f));
         jLabel11.setForeground(new java.awt.Color(124, 189, 255));
         jLabel11.setText("ID");
@@ -300,9 +303,60 @@ public class CadastroCliente extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TableCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableClienteMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(TableCliente);
 
         jScrollPane3.setViewportView(jScrollPane2);
+
+        btn_salvar.setLabel("Salvar");
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
+
+        btn_editar.setLabel("Editar");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
+
+        btn_excluir.setLabel("Excluir");
+        btn_excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirActionPerformed(evt);
+            }
+        });
+
+        btn_procurar.setLabel("Procurar");
+        btn_procurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_procurarActionPerformed(evt);
+            }
+        });
+
+        txt_nomeSearch.setFont(txt_nomeSearch.getFont().deriveFont(txt_nomeSearch.getFont().getSize()+2f));
+        txt_nomeSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nomeSearchActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(jLabel13.getFont().deriveFont(jLabel13.getFont().getSize()+10f));
+        jLabel13.setForeground(new java.awt.Color(124, 189, 255));
+        jLabel13.setText("Nome:");
+
+        btn_excluir1.setLabel("Limpar");
+        btn_excluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluir1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
@@ -342,18 +396,34 @@ public class CadastroCliente extends javax.swing.JFrame {
                             .addComponent(chkAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(97, 97, 97))
                     .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelMenuLayout.createSequentialGroup()
-                                .addGap(240, 240, 240)
-                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelMenuLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(722, Short.MAX_VALUE))))
             .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelMenuLayout.createSequentialGroup()
+                                .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(149, 149, 149))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelMenuLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_nomeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_procurar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(29, 29, 29)
+                        .addComponent(btn_excluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         panelMenuLayout.setVerticalGroup(
@@ -407,11 +477,25 @@ public class CadastroCliente extends javax.swing.JFrame {
                         .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(chkAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(17, 17, 17)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_excluir1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel13)
+                                .addComponent(txt_nomeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_procurar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         menu.setBackground(new java.awt.Color(76, 68, 118));
@@ -568,10 +652,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button1ActionPerformed
-
     private void chkAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAtivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAtivoActionPerformed
@@ -616,6 +696,38 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_idActionPerformed
 
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        controller.insert();
+        controller.setTabel();
+        controller.reset();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        controller.update();
+        controller.setTabel();
+        controller.reset();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_editarActionPerformed
+
+    private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_excluirActionPerformed
+
+    private void btn_procurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_procurarActionPerformed
+        controller.getData();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_procurarActionPerformed
+
+    private void txt_nomeSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nomeSearchActionPerformed
+
+    private void TableClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableClienteMouseClicked
+        controller.getDataField();       // TODO add your handling code here:
+    }//GEN-LAST:event_TableClienteMouseClicked
+
+    private void btn_excluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluir1ActionPerformed
+        controller.reset();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_excluir1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -654,11 +766,16 @@ public class CadastroCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableCliente;
     private javax.swing.JPanel background;
-    private java.awt.Button button1;
+    private java.awt.Button btn_editar;
+    private java.awt.Button btn_excluir;
+    private java.awt.Button btn_excluir1;
+    private java.awt.Button btn_procurar;
+    private java.awt.Button btn_salvar;
     private javax.swing.JCheckBox chkAtivo;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -695,6 +812,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_logradouro;
     private javax.swing.JTextField txt_nome;
+    private javax.swing.JTextField txt_nomeSearch;
     private javax.swing.JTextField txt_numero;
     private javax.swing.JTextField txt_telefone;
     // End of variables declaration//GEN-END:variables
