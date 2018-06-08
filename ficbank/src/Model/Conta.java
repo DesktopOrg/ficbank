@@ -22,6 +22,15 @@ public class Conta {
         this.senha = senha;
     }
 
+    public Conta(int co_id, String user, String senha, double saldo, int cl_id, boolean ativo) {
+        this.co_id = co_id;
+        this.user = user;
+        this.senha = senha;
+        this.saldo = saldo;
+        this.cl_id = cl_id;
+        this.ativo = ativo;
+    }
+
     public Conta() {
     }
     

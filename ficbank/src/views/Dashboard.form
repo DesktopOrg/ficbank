@@ -135,11 +135,11 @@
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="lbl_nome1" min="-2" pref="375" max="-2" attributes="0"/>
+                      <Component id="lbl_nome" min="-2" pref="375" max="-2" attributes="0"/>
                       <EmptySpace pref="142" max="32767" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbl_saldo1" min="-2" pref="149" max="-2" attributes="0"/>
+                      <Component id="lbl_saldo" min="-2" pref="149" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -149,9 +149,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbl_nome1" alignment="3" max="32767" attributes="0"/>
+                          <Component id="lbl_nome" alignment="3" max="32767" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="lbl_saldo1" alignment="3" pref="25" max="32767" attributes="0"/>
+                          <Component id="lbl_saldo" alignment="3" pref="0" max="32767" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -160,11 +160,11 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lbl_nome1">
+            <Component class="javax.swing.JLabel" name="lbl_nome">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
                   <FontInfo relative="true">
-                    <Font component="lbl_nome1" property="font" relativeSize="true" size="7"/>
+                    <Font component="lbl_nome" property="font" relativeSize="true" size="7"/>
                   </FontInfo>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -187,11 +187,11 @@
                 <Property name="text" type="java.lang.String" value="Bem-vindo,"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lbl_saldo1">
+            <Component class="javax.swing.JLabel" name="lbl_saldo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
                   <FontInfo relative="true">
-                    <Font bold="true" component="lbl_saldo1" property="font" relativeSize="true" size="8"/>
+                    <Font bold="true" component="lbl_saldo" property="font" relativeSize="true" size="8"/>
                   </FontInfo>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -602,7 +602,7 @@
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="icon_pagamentos2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lbl_pagamentos2" pref="198" max="32767" attributes="0"/>
+                          <Component id="lbl_pagamentos2" pref="196" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

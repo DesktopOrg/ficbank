@@ -104,18 +104,40 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
 
     @Override
     public Conta getUmaConta(int id) {
-       ResultSet rs = this.getOne(id);
+        ResultSet rs = this.getOne(id);
         Conta conta = new Conta();
         try {
-                conta.setCo_id(rs.getInt(1));
-                conta.setUser(rs.getString("user"));
-                conta.setSenha(rs.getString("senha"));
-                conta.setSaldo(rs.getDouble("saldo"));
-                conta.setAtivo(rs.getBoolean("ativo"));
-                conta.setCl_id(rs.getInt("cl_id"));
+            conta.setCo_id(rs.getInt(1));
+            conta.setUser(rs.getString("user"));
+            conta.setSenha(rs.getString("senha"));
+            conta.setSaldo(rs.getDouble("saldo"));
+            conta.setAtivo(rs.getBoolean("ativo"));
+            conta.setCl_id(rs.getInt("cl_id"));
             return conta;
         } catch (SQLException ex) {
             System.out.println("Erro ao retornar um curso pelo id: " + ex.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public Conta login(String login, String senha) {
+        ResultSet rs = this.getUserLogin(login, senha);
+        Conta conta = new Conta();
+        try {
+            if (!rs.next())
+                return null;
+            
+            conta.setCo_id(rs.getInt(1));
+            conta.setUser(rs.getString("user"));
+            conta.setSenha(rs.getString("senha"));
+            conta.setSaldo(rs.getDouble("saldo"));
+            conta.setAtivo(rs.getBoolean("ativo"));
+            conta.setCl_id(rs.getInt("cl_id"));
+            
+            return conta;
+        } catch (SQLException ex) {
+            System.out.println("Erro ao fazer login: " + ex.getMessage());
         }
         return null;
     }

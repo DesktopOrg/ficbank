@@ -5,11 +5,7 @@
  */
 package views;
 
-import Model.Conta;
-import Model.DAO.ContaDAO;
-import controllers.ClienteController;
-import controllers.ContaController;
-import controllers.NavigateController;
+import controllers.LoginController;
 
 /**
  *
@@ -17,13 +13,17 @@ import controllers.NavigateController;
  */
 public class Login extends javax.swing.JFrame {
 
+    private LoginController controller;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        controller = new LoginController(this);
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,13 +168,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
         // TODO add your handling code here:
-        boolean loginChecked = true;
-        Conta conta = new Conta(txt_login.getText(), new String(txt_senha.getPassword()));
-        ContaController login = new ContaController(conta);
-        if(login.login() != null){
-            NavigateController navigate = new NavigateController(login.login());
-            navigate.goToDashboard();
-        }
+        controller.login();
     }//GEN-LAST:event_btnAcessarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -233,4 +227,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField txt_login;
     private javax.swing.JPasswordField txt_senha;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTextField getTxt_login() {
+        return txt_login;
+    }
+
+    public javax.swing.JPasswordField getTxt_senha() {
+        return txt_senha;
+    }
 }

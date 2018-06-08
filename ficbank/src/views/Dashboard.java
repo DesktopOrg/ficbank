@@ -5,7 +5,9 @@
  */
 package views;
 
+import Model.Cliente;
 import Model.Conta;
+import controllers.DashboardController;
 
 /**
  *
@@ -13,12 +15,19 @@ import Model.Conta;
  */
 public class Dashboard extends javax.swing.JFrame {
 
+    DashboardController controller;
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
     }
+
+    public Dashboard(Conta conta, Cliente cliente) {
+        initComponents();
+        controller = new DashboardController(conta, cliente, this);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,9 +42,9 @@ public class Dashboard extends javax.swing.JFrame {
         menu1 = new javax.swing.JPanel();
         logo1 = new javax.swing.JLabel();
         pnl_name1 = new javax.swing.JPanel();
-        lbl_nome1 = new javax.swing.JLabel();
+        lbl_nome = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lbl_saldo1 = new javax.swing.JLabel();
+        lbl_saldo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         pn_Solicitações = new javax.swing.JPanel();
@@ -93,19 +102,19 @@ public class Dashboard extends javax.swing.JFrame {
 
         pnl_name1.setBackground(new java.awt.Color(49, 55, 78));
 
-        lbl_nome1.setFont(lbl_nome1.getFont().deriveFont(lbl_nome1.getFont().getSize()+7f));
-        lbl_nome1.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_nome1.setText("Nome Cliente");
+        lbl_nome.setFont(lbl_nome.getFont().deriveFont(lbl_nome.getFont().getSize()+7f));
+        lbl_nome.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_nome.setText("Nome Cliente");
 
         jLabel5.setFont(jLabel5.getFont().deriveFont(jLabel5.getFont().getStyle() | java.awt.Font.BOLD, jLabel5.getFont().getSize()+8));
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Bem-vindo,");
 
-        lbl_saldo1.setFont(lbl_saldo1.getFont().deriveFont(lbl_saldo1.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo1.getFont().getSize()+8));
-        lbl_saldo1.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_saldo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_saldo1.setText("VALOR");
+        lbl_saldo.setFont(lbl_saldo.getFont().deriveFont(lbl_saldo.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo.getFont().getSize()+8));
+        lbl_saldo.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_saldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo.setText("VALOR");
 
         jLabel6.setFont(jLabel6.getFont().deriveFont(jLabel6.getFont().getStyle() | java.awt.Font.BOLD, jLabel6.getFont().getSize()+8));
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,11 +129,11 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_nome1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_saldo1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
         pnl_name1Layout.setVerticalGroup(
@@ -132,9 +141,9 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnl_name1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_name1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_nome1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_nome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_saldo1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(lbl_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -157,7 +166,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_saldo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+            .addComponent(lbl_saldo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -344,7 +353,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(icon_pagamentos2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_pagamentos2, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
+                .addComponent(lbl_pagamentos2, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
         );
         pnl_pagamentos2Layout.setVerticalGroup(
             pnl_pagamentos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -513,12 +522,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_extrato;
-    private javax.swing.JLabel lbl_nome1;
+    private javax.swing.JLabel lbl_nome;
     private javax.swing.JLabel lbl_pagamentos;
     private javax.swing.JLabel lbl_pagamentos1;
     private javax.swing.JLabel lbl_pagamentos2;
     private javax.swing.JLabel lbl_pagamentos3;
-    private javax.swing.JLabel lbl_saldo1;
+    private javax.swing.JLabel lbl_saldo;
     private javax.swing.JLabel lbl_saldo2;
     private javax.swing.JLabel logo1;
     private javax.swing.JPanel menu1;
@@ -532,7 +541,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_pagamentos3;
     // End of variables declaration//GEN-END:variables
 
-    public void setConta(Conta conta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public javax.swing.JLabel getLbl_nome() {
+        return lbl_nome;
     }
+
+    public javax.swing.JLabel getLbl_saldo() {
+        return lbl_saldo;
+    }
+
 }

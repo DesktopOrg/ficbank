@@ -15,7 +15,7 @@ import java.util.Map;
  * @author kamimuraf
  */
 public class DataBaseGeneric extends DataBase {
-     public String table;
+    public String table;
     
     public DataBaseGeneric(){}
     
@@ -46,7 +46,14 @@ public class DataBaseGeneric extends DataBase {
         this.checkConnection();
         if(!this.checkEmptyTable())
             return null;
-        return this.query("SELECT * FROM " + this.table + " WHERE id = ?", id);
+        return this.query("SELECT * FROM " + this.table + " WHERE cl_id = ?", id);
+    }
+    
+    public ResultSet getUserLogin(String login, String senha){
+        this.checkConnection();
+        if(!this.checkEmptyTable())
+            return null;
+        return this.query("SELECT * FROM " + this.table + " WHERE user = ? and senha = ?", login, senha);
     }
     
     public ResultSet getAll(){

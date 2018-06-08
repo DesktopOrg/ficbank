@@ -130,18 +130,21 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
         ResultSet rs = this.getOne(id);
         Cliente cliente = new Cliente();
         try {
-            cliente.setCl_id(rs.getInt(1));
-            cliente.setName(rs.getString("name"));
-            cliente.setEmail(rs.getString("email"));
-            cliente.setTelefone(rs.getString("telefone"));
-            cliente.setEstado(rs.getString("estado"));
-            cliente.setCidade(rs.getString("cidade"));
-            cliente.setLogradouro(rs.getString("logradouro"));
-            cliente.setNumero(rs.getString("numero"));
-            cliente.setBairro(rs.getString("bairro"));
-            cliente.setCpf(rs.getString("cpf"));
-            cliente.setAtivo(rs.getBoolean("ativo"));
-            return cliente;
+            if (rs.next()) {
+                cliente.setCl_id(rs.getInt(1));
+                cliente.setName(rs.getString("name"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setTelefone(rs.getString("telefone"));
+                cliente.setEstado(rs.getString("estado"));
+                cliente.setCidade(rs.getString("cidade"));
+                cliente.setLogradouro(rs.getString("logradouro"));
+                cliente.setNumero(rs.getString("numero"));
+                cliente.setBairro(rs.getString("bairro"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setAtivo(rs.getBoolean("ativo"));
+                return cliente;
+            }
+            return null;
         } catch (SQLException ex) {
             System.out.println("Erro ao retornar um curso pelo id: " + ex.getMessage());
         }
