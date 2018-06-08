@@ -42,11 +42,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar Json"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar Texto"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -59,11 +65,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Carregar Binario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Carregar Json"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
@@ -750,7 +762,7 @@
         <Component class="javax.swing.JLabel" name="sair">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/exit-40.png"/>
+              <Image iconType="3" name="/assets/door [#45].png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="SAIR"/>
           </Properties>

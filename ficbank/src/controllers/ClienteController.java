@@ -5,11 +5,17 @@
  */
 package controllers;
 
+import Arquivos.Binario;
+import Arquivos.Json;
+import Arquivos.Texto;
 import Model.Cliente;
 import Model.DAO.ClienteDAO;
 import Model.Interfaces.ImplementCliente;
 import Model.Tabel.TableModelCliente;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import views.CadastroCliente;
 import views.teste;
@@ -43,6 +49,7 @@ public class ClienteController {
         panel.getTxt_cpf().setText("");
         panel.getChkAtivo().setSelected(true);
         panel.getTxt_id().setText("");
+        
     }
     
     
@@ -120,5 +127,157 @@ public class ClienteController {
     public void filterTable(String name){
         list = implementCliente.getClientePorNome(name);
         panel.getTableCliente().setModel(new TableModelCliente(list));
+    }
+    
+    public boolean verificar(){
+        if (panel.getTxt_nome().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo Nome está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+        if (panel.getTxt_telefone().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo telefone está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+        if (panel.getTxt_email().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo email está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+        if (panel.getTxt_estado().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo estado está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+        if (panel.getTxt_cidade().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo cidade está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+        if (panel.getTxt_logradouro().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo logradouro está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+        if (panel.getTxt_bairro().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo bairro está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+        if (panel.getTxt_numero().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo numero está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+        if (panel.getTxt_cpf().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(panel, "Campo CPF está vazio, preencha-o antes de continuar!");
+            return false;
+        }
+
+        long valor;
+        if (panel.getTxt_telefone().getText().length() != 0) {
+            try {
+                valor = Long.parseLong(panel.getTxt_telefone().getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "O campo Telefone só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                panel.getTxt_telefone().grabFocus();
+                return false;
+            }
+        }
+
+        if (panel.getTxt_cpf().getText().length() != 0) {
+            try {
+                valor = Long.parseLong(panel.getTxt_cpf().getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "O campo CPF só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                panel.getTxt_cpf().grabFocus();
+                return false;
+            }
+        }
+    
+        return true;  
+    }
+    
+    public void preencheCampos(Cliente c){
+        panel.getTxt_nome().setText(c.getName());
+        panel.getTxt_telefone().setText(c.getTelefone());
+        panel.getTxt_email().setText(c.getEmail());
+        panel.getTxt_estado().setText(c.getEstado());
+        panel.getTxt_cidade().setText(c.getCidade());
+        panel.getTxt_logradouro().setText(c.getLogradouro());
+        panel.getTxt_numero().setText(c.getNumero());
+        panel.getTxt_bairro().setText(c.getBairro());
+        panel.getTxt_cpf().setText(c.getCpf());
+        panel.getChkAtivo().setSelected(c.isAtivo());
+        panel.getTxt_id().setText(Integer.toString(c.getCl_id()));
+    
+    }
+    public Cliente montarObj(){
+            Cliente c = new Cliente();
+            c.setName(panel.getTxt_nome().getText());
+            c.setCpf(panel.getTxt_cpf().getText());
+            c.setEmail(panel.getTxt_email().getText());
+            c.setTelefone(panel.getTxt_telefone().getText());
+            c.setEstado(panel.getTxt_estado().getText());
+            c.setCidade(panel.getTxt_cidade().getText());
+            c.setLogradouro(panel.getTxt_logradouro().getText());
+            c.setNumero(panel.getTxt_numero().getText());
+            c.setBairro(panel.getTxt_bairro().getText());
+            c.setAtivo(panel.getChkAtivo().isSelected());
+            JOptionPane.showMessageDialog(null, "Objeto criado com sucesso!");
+            return c;
+    }
+    
+    public void salvarTexto(){
+        Texto t = new Texto();
+        if (verificar()){
+            Cliente c = new Cliente();
+            c = montarObj();
+            try {
+                t.TextFileWriter(c);
+                //limparCampos();
+            } catch (IOException ex) {
+                Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+        }
+    }
+    
+    public void salvarJson(){
+        Json json = new Json();
+        if (verificar()){
+            Cliente c = new Cliente();
+            c = montarObj();
+            json.saveJSON("./arquivoJson.json", json.convertToJSON(c));
+        }
+    }
+    
+    public void salvarBinario(){
+        Binario bin = new Binario();
+        if(verificar()){
+            Cliente c = new Cliente();
+            c = montarObj();
+            bin.openFileWrite();
+            bin.addRecords(c);
+            bin.closeFileOut();
+        }
+    }
+    
+    public void loadTexto(){
+        Texto t = new Texto();
+        Cliente retorno = new Cliente();
+        try {
+            retorno = t.TextFileReader();
+        } catch (IOException ex) {
+            Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        preencheCampos(retorno);
+    }
+
+    public void loadJson(){
+        Json json = new Json();
+        Cliente c = json.convertToCliente(json.loadJSON("./arquivoJson.json"));
+        preencheCampos(c);
+    }
+    
+    public void loadBinario(){
+        Binario bin = new Binario();
+        bin.openFileRead();
+        Cliente c = new Cliente();
+        c = bin.readRecords();
+        bin.closeFileIn();
+        preencheCampos(c);
     }
 }

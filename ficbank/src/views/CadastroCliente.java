@@ -747,7 +747,8 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_TableClienteMouseClicked
 
     private void btn_excluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluir1ActionPerformed
-        controller.reset();        // TODO add your handling code here:
+        controller.reset();
+        controller.setTabel();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_excluir1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
