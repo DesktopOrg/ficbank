@@ -30,13 +30,19 @@ public class Dashboard extends javax.swing.JFrame {
         background = new javax.swing.JPanel();
         menu = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
-        sair = new javax.swing.JLabel();
         pnl_name = new javax.swing.JPanel();
         lbl_nome = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lbl_saldo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        pn_Solicitações = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lbl_saldo1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         panelMenu = new javax.swing.JPanel();
         pnl_extrato = new javax.swing.JPanel();
         icon_extrato = new javax.swing.JLabel();
@@ -44,6 +50,15 @@ public class Dashboard extends javax.swing.JFrame {
         pnl_pagamentos = new javax.swing.JPanel();
         icon_pagamentos = new javax.swing.JLabel();
         lbl_pagamentos = new javax.swing.JLabel();
+        pnl_pagamentos1 = new javax.swing.JPanel();
+        icon_pagamentos1 = new javax.swing.JLabel();
+        lbl_pagamentos1 = new javax.swing.JLabel();
+        pnl_pagamentos2 = new javax.swing.JPanel();
+        icon_pagamentos2 = new javax.swing.JLabel();
+        lbl_pagamentos2 = new javax.swing.JLabel();
+        pnl_pagamentos3 = new javax.swing.JPanel();
+        icon_pagamentos3 = new javax.swing.JLabel();
+        lbl_pagamentos3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
@@ -57,9 +72,6 @@ public class Dashboard extends javax.swing.JFrame {
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo_LATERAL.png"))); // NOI18N
         logo.setToolTipText("Ficbank");
 
-        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/exit-40.png"))); // NOI18N
-        sair.setToolTipText("SAIR");
-
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
@@ -67,18 +79,14 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(logo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sair)
-                .addGap(21, 21, 21))
+                .addContainerGap(632, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logo)
-                    .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(logo)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pnl_name.setBackground(new java.awt.Color(49, 55, 78));
@@ -129,15 +137,84 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel2.setBackground(new java.awt.Color(76, 68, 118));
+
+        lbl_saldo1.setFont(lbl_saldo1.getFont().deriveFont(lbl_saldo1.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo1.getFont().getSize()+8));
+        lbl_saldo1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_saldo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo1.setText("Solicitações");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lbl_saldo1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_saldo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jButton1.setText("Aprovar");
+
+        jButton2.setText("Recusar");
+
+        javax.swing.GroupLayout pn_SolicitaçõesLayout = new javax.swing.GroupLayout(pn_Solicitações);
+        pn_Solicitações.setLayout(pn_SolicitaçõesLayout);
+        pn_SolicitaçõesLayout.setHorizontalGroup(
+            pn_SolicitaçõesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_SolicitaçõesLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pn_SolicitaçõesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_SolicitaçõesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(42, 42, 42))
+        );
+        pn_SolicitaçõesLayout.setVerticalGroup(
+            pn_SolicitaçõesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_SolicitaçõesLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pn_SolicitaçõesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(pn_Solicitações, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(pn_Solicitações, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         panelMenu.setBackground(new java.awt.Color(49, 55, 78));
@@ -145,9 +222,10 @@ public class Dashboard extends javax.swing.JFrame {
         pnl_extrato.setBackground(new java.awt.Color(49, 55, 78));
         pnl_extrato.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        icon_extrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/extract-80.png"))); // NOI18N
+        icon_extrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/list [#1497].png"))); // NOI18N
         icon_extrato.setToolTipText("Extrato");
 
+        lbl_extrato.setBackground(new java.awt.Color(76, 81, 103));
         lbl_extrato.setFont(lbl_extrato.getFont().deriveFont(lbl_extrato.getFont().getSize()+7f));
         lbl_extrato.setForeground(new java.awt.Color(255, 255, 255));
         lbl_extrato.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -161,7 +239,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(icon_extrato)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_extrato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lbl_extrato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnl_extratoLayout.setVerticalGroup(
             pnl_extratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,15 +248,18 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnl_extratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_extrato, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(icon_extrato))
+                    .addGroup(pnl_extratoLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(icon_extrato)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnl_pagamentos.setBackground(new java.awt.Color(49, 55, 78));
         pnl_pagamentos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnl_pagamentos.setPreferredSize(new java.awt.Dimension(161, 71));
 
         icon_pagamentos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon_pagamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/payment-80.png"))); // NOI18N
+        icon_pagamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dollar [#1189].png"))); // NOI18N
         icon_pagamentos.setToolTipText("Extrato");
 
         lbl_pagamentos.setFont(lbl_pagamentos.getFont().deriveFont(lbl_pagamentos.getFont().getSize()+7f));
@@ -193,7 +275,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(icon_pagamentos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_pagamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))
+                .addComponent(lbl_pagamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl_pagamentosLayout.setVerticalGroup(
             pnl_pagamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,21 +288,132 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnl_pagamentos1.setBackground(new java.awt.Color(73, 83, 122));
+        pnl_pagamentos1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnl_pagamentos1.setPreferredSize(new java.awt.Dimension(161, 71));
+
+        icon_pagamentos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icon_pagamentos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/notification_bell [#1398].png"))); // NOI18N
+        icon_pagamentos1.setToolTipText("Extrato");
+
+        lbl_pagamentos1.setFont(lbl_pagamentos1.getFont().deriveFont(lbl_pagamentos1.getFont().getSize()+7f));
+        lbl_pagamentos1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_pagamentos1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_pagamentos1.setText("SOLICITAÇÕES");
+
+        javax.swing.GroupLayout pnl_pagamentos1Layout = new javax.swing.GroupLayout(pnl_pagamentos1);
+        pnl_pagamentos1.setLayout(pnl_pagamentos1Layout);
+        pnl_pagamentos1Layout.setHorizontalGroup(
+            pnl_pagamentos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_pagamentos1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(icon_pagamentos1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_pagamentos1, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
+        );
+        pnl_pagamentos1Layout.setVerticalGroup(
+            pnl_pagamentos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_pagamentos1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(icon_pagamentos1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnl_pagamentos1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_pagamentos1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnl_pagamentos2.setBackground(new java.awt.Color(49, 55, 78));
+        pnl_pagamentos2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnl_pagamentos2.setPreferredSize(new java.awt.Dimension(161, 71));
+
+        icon_pagamentos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icon_pagamentos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/emoji_happy_circle [#539].png"))); // NOI18N
+        icon_pagamentos2.setToolTipText("Extrato");
+
+        lbl_pagamentos2.setFont(lbl_pagamentos2.getFont().deriveFont(lbl_pagamentos2.getFont().getSize()+7f));
+        lbl_pagamentos2.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_pagamentos2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_pagamentos2.setText("DADOS PESSOAIS");
+
+        javax.swing.GroupLayout pnl_pagamentos2Layout = new javax.swing.GroupLayout(pnl_pagamentos2);
+        pnl_pagamentos2.setLayout(pnl_pagamentos2Layout);
+        pnl_pagamentos2Layout.setHorizontalGroup(
+            pnl_pagamentos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_pagamentos2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(icon_pagamentos2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_pagamentos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnl_pagamentos2Layout.setVerticalGroup(
+            pnl_pagamentos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_pagamentos2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(icon_pagamentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnl_pagamentos2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_pagamentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnl_pagamentos3.setBackground(new java.awt.Color(49, 55, 78));
+        pnl_pagamentos3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnl_pagamentos3.setPreferredSize(new java.awt.Dimension(161, 71));
+
+        icon_pagamentos3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icon_pagamentos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/door [#45].png"))); // NOI18N
+        icon_pagamentos3.setToolTipText("Extrato");
+
+        lbl_pagamentos3.setFont(lbl_pagamentos3.getFont().deriveFont(lbl_pagamentos3.getFont().getSize()+7f));
+        lbl_pagamentos3.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_pagamentos3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_pagamentos3.setText("SAIR");
+
+        javax.swing.GroupLayout pnl_pagamentos3Layout = new javax.swing.GroupLayout(pnl_pagamentos3);
+        pnl_pagamentos3.setLayout(pnl_pagamentos3Layout);
+        pnl_pagamentos3Layout.setHorizontalGroup(
+            pnl_pagamentos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_pagamentos3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(icon_pagamentos3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_pagamentos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnl_pagamentos3Layout.setVerticalGroup(
+            pnl_pagamentos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_pagamentos3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(icon_pagamentos3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnl_pagamentos3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_pagamentos3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnl_extrato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnl_pagamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_pagamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+            .addComponent(pnl_pagamentos1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+            .addComponent(pnl_pagamentos2, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+            .addComponent(pnl_pagamentos3, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
+                .addComponent(pnl_pagamentos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnl_extrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnl_pagamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnl_pagamentos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnl_pagamentos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
@@ -245,7 +438,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 72, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -303,19 +496,34 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel background;
     private javax.swing.JLabel icon_extrato;
     private javax.swing.JLabel icon_pagamentos;
+    private javax.swing.JLabel icon_pagamentos1;
+    private javax.swing.JLabel icon_pagamentos2;
+    private javax.swing.JLabel icon_pagamentos3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_extrato;
     private javax.swing.JLabel lbl_nome;
     private javax.swing.JLabel lbl_pagamentos;
+    private javax.swing.JLabel lbl_pagamentos1;
+    private javax.swing.JLabel lbl_pagamentos2;
+    private javax.swing.JLabel lbl_pagamentos3;
     private javax.swing.JLabel lbl_saldo;
+    private javax.swing.JLabel lbl_saldo1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel menu;
     private javax.swing.JPanel panelMenu;
+    private javax.swing.JPanel pn_Solicitações;
     private javax.swing.JPanel pnl_extrato;
     private javax.swing.JPanel pnl_name;
     private javax.swing.JPanel pnl_pagamentos;
-    private javax.swing.JLabel sair;
+    private javax.swing.JPanel pnl_pagamentos1;
+    private javax.swing.JPanel pnl_pagamentos2;
+    private javax.swing.JPanel pnl_pagamentos3;
     // End of variables declaration//GEN-END:variables
 }
