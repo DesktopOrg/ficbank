@@ -8,6 +8,7 @@ package views;
 import Model.Cliente;
 import Model.Conta;
 import controllers.DashboardController;
+import javax.swing.JLabel;
 
 /**
  *
@@ -26,6 +27,10 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard(Conta conta, Cliente cliente) {
         initComponents();
         controller = new DashboardController(conta, cliente, this);
+    }
+
+    public JLabel getLbl_saldo2() {
+        return lbl_saldo2;
     }
     
 
@@ -71,7 +76,7 @@ public class Dashboard extends javax.swing.JFrame {
         icon_pagamentos3 = new javax.swing.JLabel();
         lbl_pagamentos3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Dashboard");
         setResizable(false);
 
@@ -166,7 +171,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_saldo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
+            .addComponent(lbl_saldo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -353,7 +358,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(icon_pagamentos2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_pagamentos2, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                .addComponent(lbl_pagamentos2, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
         );
         pnl_pagamentos2Layout.setVerticalGroup(
             pnl_pagamentos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -45,5 +45,6 @@ public class LoginController {
         } else {
             JOptionPane.showMessageDialog(null, "Falha no login, conta não encontrada no banco de dados! Tente Novamente.", "Conta não encontrada", JOptionPane.ERROR_MESSAGE);
         }
+        
     }
 }

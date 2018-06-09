@@ -71,6 +71,11 @@ public class Login extends javax.swing.JFrame {
                 btnAcessarActionPerformed(evt);
             }
         });
+        btnAcessar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnAcessarKeyPressed(evt);
+            }
+        });
 
         jLabel3.setFont(jLabel3.getFont().deriveFont(jLabel3.getFont().getSize()+16f));
         jLabel3.setForeground(new java.awt.Color(124, 189, 255));
@@ -133,6 +138,11 @@ public class Login extends javax.swing.JFrame {
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Novo Cliente");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
@@ -172,8 +182,18 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAcessarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        views.Conta conta = new views.Conta();
+        conta.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        CadastroCliente cliente = new CadastroCliente();
+        cliente.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void btnAcessarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAcessarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAcessarKeyPressed
 
     /**
      * @param args the command line arguments

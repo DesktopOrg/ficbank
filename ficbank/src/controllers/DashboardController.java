@@ -40,6 +40,7 @@ public class DashboardController {
             getCliente();
         }
         Dashboard dash = new Dashboard(conta, cliente);
+        setValues(dash);
         dash.setVisible(true);
         
     }
@@ -49,8 +50,10 @@ public class DashboardController {
         cliente = dao.getUmCliente(conta.getCl_id());
     }
     
-    private void setValues() {
-        dashboardView.getLbl_nome().setText(cliente.getName());
-        dashboardView.getLbl_saldo().setText(conta.getSenha());
+    private void setValues(Dashboard dash) {
+        dash.getLbl_nome().setText(cliente.getName());
+        dash.getLbl_saldo().setText(String.valueOf(conta.getSaldo()));
     }
+    
+    
 }

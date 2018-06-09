@@ -5,6 +5,12 @@
  */
 package views;
 
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author akira
@@ -17,6 +23,36 @@ public class Conta extends javax.swing.JFrame {
     public Conta() {
         initComponents();
     }
+
+    public JTable getTableCliente() {
+        return TableCliente;
+    }
+
+    public JCheckBox getChkAtivo() {
+        return chkAtivo;
+    }
+
+    public JTextField getTxt_nome() {
+        return txt_nome;
+    }
+
+    public JTextField getTxt_nomeSearch() {
+        return txt_nomeSearch;
+    }
+
+    public JTextField getTxt_saldo() {
+        return txt_saldo;
+    }
+
+    public JPasswordField getTxt_senha() {
+        return txt_senha;
+    }
+
+    public JComboBox<String> getJcb_clientes() {
+        return jcb_clientes;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,6 +102,7 @@ public class Conta extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -225,47 +262,48 @@ public class Conta extends javax.swing.JFrame {
                     .addGroup(panelMenuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 52, Short.MAX_VALUE))
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelMenuLayout.createSequentialGroup()
-                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_senha)
-                                    .addComponent(lbl_nome_login))
-                                .addGap(279, 279, 279)
-                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)))
-                            .addGroup(panelMenuLayout.createSequentialGroup()
-                                .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
-                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jcb_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(panelMenuLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(chkAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(chkAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lbl_nome_login)
+                                .addGap(281, 281, 281))
+                            .addGroup(panelMenuLayout.createSequentialGroup()
+                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelMenuLayout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(lbl_senha))
+                                    .addGroup(panelMenuLayout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(38, 38, 38)))
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(txt_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelMenuLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jcb_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_nome_login)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGap(21, 21, 21)
                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                    .addComponent(lbl_nome_login)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_nome, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(txt_saldo))
+                .addGap(27, 27, 27)
                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_senha)
                     .addComponent(jLabel7))
@@ -460,30 +498,31 @@ public class Conta extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        controller.salvarBinario();        // TODO add your handling code here:
+              // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        controller.salvarJson();        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        controller.salvarTexto();        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        controller.loadBinario();        // TODO add your handling code here:
+               // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        controller.loadJson();        // TODO add your handling code here:
+               // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        controller.loadTexto();        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void btn_excluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluir1ActionPerformed

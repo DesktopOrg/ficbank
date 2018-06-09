@@ -155,6 +155,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Cliente");
+        setResizable(false);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -662,6 +663,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
