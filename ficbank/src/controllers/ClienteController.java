@@ -117,7 +117,7 @@ public class ClienteController {
     
     public void getData(){
         if (panel.getTxt_nomeSearch().getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(panel, "Digite um nome de curso para buscar.", null, JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Digite um nome para buscar.", null, JOptionPane.WARNING_MESSAGE);
             return;
         }
         String name = panel.getTxt_nome().getText();
