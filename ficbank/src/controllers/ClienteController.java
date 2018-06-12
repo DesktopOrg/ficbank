@@ -92,6 +92,7 @@ public class ClienteController {
     
     public void update(){
         Cliente cliente = new Cliente();
+        cliente.setCl_id(Integer.parseInt(panel.getTxt_id().getText()));
         cliente.setName(panel.getTxt_nome().getText());
         cliente.setEmail(panel.getTxt_email().getText());
         cliente.setTelefone(panel.getTxt_telefone().getText());
