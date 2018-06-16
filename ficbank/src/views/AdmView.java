@@ -136,7 +136,7 @@ public class AdmView extends javax.swing.JFrame {
         lbl_pagamentos1.setFont(lbl_pagamentos1.getFont().deriveFont(lbl_pagamentos1.getFont().getSize()+7f));
         lbl_pagamentos1.setForeground(new java.awt.Color(255, 255, 255));
         lbl_pagamentos1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_pagamentos1.setText("REQUISIÇÕES");
+        lbl_pagamentos1.setText("CLIENTES");
 
         javax.swing.GroupLayout pnl_solicitacaoLayout = new javax.swing.GroupLayout(pnl_solicitacao);
         pnl_solicitacao.setLayout(pnl_solicitacaoLayout);
@@ -176,7 +176,7 @@ public class AdmView extends javax.swing.JFrame {
         lbl_pagamentos.setFont(lbl_pagamentos.getFont().deriveFont(lbl_pagamentos.getFont().getSize()+7f));
         lbl_pagamentos.setForeground(new java.awt.Color(255, 255, 255));
         lbl_pagamentos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_pagamentos.setText("CLIENTES");
+        lbl_pagamentos.setText("CONTAS");
 
         javax.swing.GroupLayout pnl_pagamentoLayout = new javax.swing.GroupLayout(pnl_pagamento);
         pnl_pagamento.setLayout(pnl_pagamentoLayout);
@@ -214,7 +214,7 @@ public class AdmView extends javax.swing.JFrame {
         lbl_extrato.setFont(lbl_extrato.getFont().deriveFont(lbl_extrato.getFont().getSize()+7f));
         lbl_extrato.setForeground(new java.awt.Color(255, 255, 255));
         lbl_extrato.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_extrato.setText("CONTAS");
+        lbl_extrato.setText("REQUISIÇÕES");
 
         javax.swing.GroupLayout pnl_extratoLayout = new javax.swing.GroupLayout(pnl_extrato);
         pnl_extrato.setLayout(pnl_extratoLayout);
@@ -461,8 +461,7 @@ public class AdmView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel8)
-                        .addContainerGap(680, Short.MAX_VALUE))
+                        .addComponent(jLabel8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -478,8 +477,7 @@ public class AdmView extends javax.swing.JFrame {
                         .addGap(76, 76, 76)
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel13)
-                        .addGap(81, 81, 81))
+                        .addComponent(jLabel13))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -487,8 +485,8 @@ public class AdmView extends javax.swing.JFrame {
                         .addGap(386, 386, 386)
                         .addComponent(btn_recusar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_aprovar)
-                        .addGap(63, 63, 63))))
+                        .addComponent(btn_aprovar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -508,12 +506,13 @@ public class AdmView extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_recusar)
-                        .addComponent(btn_aprovar)))
+                        .addComponent(btn_aprovar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(jLabel10)))
                 .addGap(0, 21, Short.MAX_VALUE))
         );
 
