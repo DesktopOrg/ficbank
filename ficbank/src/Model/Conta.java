@@ -16,7 +16,9 @@ public class Conta {
     private double saldo;
     private int cl_id;
     private boolean ativo;
-
+    private String codigoReparticao;
+    private Cliente cliente;
+    
     public Conta(String user, String senha) {
         this.user = user;
         this.senha = senha;
@@ -81,6 +83,20 @@ public class Conta {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    
-    
+
+    public String getCodigoReparticao() {
+        return codigoReparticao;
+    }
+
+    public void setCodigoReparticao(String codigoReparticao) {
+        this.codigoReparticao = codigoReparticao;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }

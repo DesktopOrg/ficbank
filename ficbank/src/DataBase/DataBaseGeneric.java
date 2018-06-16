@@ -56,6 +56,13 @@ public class DataBaseGeneric extends DataBase {
         return this.query("SELECT * FROM " + this.table + " WHERE user = ? and senha = ?", login, senha);
     }
     
+    public ResultSet getUserReparticao(int codigoConta, String codigoReparticao){
+        this.checkConnection();
+        if(!this.checkEmptyTable())
+            return null;
+        return this.query("SELECT * FROM " + this.table + " WHERE co_id = ? and codigo_reparticao = ?", codigoConta, codigoReparticao);
+    }
+    
     public ResultSet getAll(){
         this.checkConnection();
         if(!this.checkEmptyTable())

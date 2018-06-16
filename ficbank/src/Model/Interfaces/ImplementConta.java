@@ -22,6 +22,8 @@ public interface ImplementConta {
     
     public List<Conta> getContaPorUser(String user);
     
+    public Conta getContaReparticao(int codigoConta, String codigoReparticao);
+    
     public List<Conta> getAllConta();
     
     public Conta getUmaConta(int id);

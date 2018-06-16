@@ -18,7 +18,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import views.CadastroCliente;
-import views.teste;
 
 /**
  *

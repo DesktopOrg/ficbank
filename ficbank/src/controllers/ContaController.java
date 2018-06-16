@@ -17,14 +17,15 @@ import javax.swing.JOptionPane;
  */
 public class ContaController {
     private Model.Conta conta;
-
-    public ContaController(Conta conta) {
-        this.conta = conta;
-    }
-    
     private final views.Conta panel;
     private final ImplementConta implementConta;
     private List<Conta> list;
+    
+    public ContaController(Conta conta) {
+        this.conta = conta;
+        panel = null;
+        implementConta = null;
+    }
     
     public ContaController(views.Conta panel) {
         this.panel = panel;
@@ -41,7 +42,7 @@ public class ContaController {
     
     public void setTabel(){
         list = implementConta.getAllConta();
-        panel.getTableCliente().setModel(new TableModelConta(list));
+        //panel.getTableCliente().setModel(new TableModelConta(list));
     }
     
     public void getDataField(){
@@ -266,3 +267,5 @@ private final CadastroConta panel;
         bin.closeFileIn();
         preencheCampos(c);
     }
+
+*/

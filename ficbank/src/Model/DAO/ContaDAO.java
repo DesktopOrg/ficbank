@@ -115,7 +115,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             conta.setCl_id(rs.getInt("cl_id"));
             return conta;
         } catch (SQLException ex) {
-            System.out.println("Erro ao retornar um curso pelo id: " + ex.getMessage());
+            System.out.println("Erro ao retornar uma conta pelo id: " + ex.getMessage());
         }
         return null;
     }
@@ -138,6 +138,31 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             return conta;
         } catch (SQLException ex) {
             System.out.println("Erro ao fazer login: " + ex.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public Conta getContaReparticao(int codigoConta, String codigoReparticao) {
+        ResultSet rs = this.getUserReparticao(codigoConta, codigoReparticao);
+        Conta conta = new Conta();
+        try {
+            if (!rs.next())
+                return null;
+            
+            conta.setCo_id(rs.getInt(1));
+            conta.setUser(rs.getString("user"));
+            conta.setSenha(rs.getString("senha"));
+            conta.setSaldo(rs.getDouble("saldo"));
+            conta.setAtivo(rs.getBoolean("ativo"));
+            conta.setCl_id(rs.getInt("cl_id"));
+            //conta.setCodigoReparticao("codigo_reparticao");
+            ClienteDAO dao = new ClienteDAO();
+            conta.setCliente(dao.getUmCliente(conta.getCl_id()));
+            
+            return conta;
+        } catch (SQLException ex) {
+            System.out.println("Erro ao encontrar conta para particionar um debito: " + ex.getMessage());
         }
         return null;
     }
