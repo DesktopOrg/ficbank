@@ -5,6 +5,7 @@
  */
 package Model.DAO;
 
+import Configurations.ConfigurationsPhpMyAdmin;
 import Configurations.ConfigurationsMySQL;
 import DataBase.DataBaseGeneric;
 import Model.Cliente;
@@ -60,14 +61,14 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
         mapObj.put("bairro", cliente.getBairro());
         mapObj.put("cpf", cliente.getCpf());
         mapObj.put("ativo", cliente.isAtivo());
-        mapConditions.put("cl_id", cliente.getCl_id());
+        mapConditions.put("id", cliente.getCl_id());
         this.genericUpdate(mapObj, mapConditions);
     }
     
     @Override
     public void delete(int id){
     Map<Object, Object> mapConditions = new HashMap<>();
-        mapConditions.put("cl_id", id);
+        mapConditions.put("id", id);
         this.genericDelete(mapConditions);
     }
     

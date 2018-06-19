@@ -75,8 +75,8 @@ public class Dashboard extends javax.swing.JFrame {
         MainPanel.add(panelCadastroReparticao, c);
         
         
-        // panelResumo.setVisible(true);
-        panelCadastroReparticao.setVisible(true);
+        panelResumo.setVisible(true);
+        // panelCadastroReparticao.setVisible(true);
         panelResumo.setVisible(false);
         panelNotificacao.setVisible(false);
         panelPagamento.setVisible(false);

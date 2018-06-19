@@ -5,6 +5,7 @@
  */
 package Model.DAO;
 
+import Configurations.ConfigurationsPhpMyAdmin;
 import Configurations.ConfigurationsMySQL;
 import DataBase.DataBaseGeneric;
 import Model.Conta;
@@ -32,7 +33,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         mapObj.put("senha", conta.getSenha());
         mapObj.put("saldo", conta.getSaldo());
         mapObj.put("ativo", conta.isAtivo());
-        mapObj.put("cl_id", conta.getCl_id());
+        mapObj.put("id", conta.getCl_id());
 
         
         this.genericInsert(mapObj);
@@ -46,15 +47,15 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         mapObj.put("senha", conta.getSenha());
         mapObj.put("saldo", conta.getSaldo());
         mapObj.put("ativo", conta.isAtivo());
-        mapObj.put("cl_id", conta.getCl_id());
-        mapConditions.put("co_id", conta.getCo_id());
+        mapObj.put("id", conta.getCl_id());
+        mapConditions.put("id", conta.getCo_id());
         this.genericUpdate(mapObj, mapConditions);
     }
 
     @Override
     public void delete(int id) {
         Map<Object, Object> mapConditions = new HashMap<>();
-        mapConditions.put("co_id", id);
+        mapConditions.put("id", id);
         this.genericDelete(mapConditions);
     }
 
@@ -70,7 +71,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
                 conta.setSenha(rs.getString("senha"));
                 conta.setSaldo(rs.getDouble("saldo"));
                 conta.setAtivo(rs.getBoolean("ativo"));
-                conta.setCl_id(rs.getInt("cl_id"));
+                conta.setCl_id(rs.getInt("id"));
                 list.add(conta);
             }
             return list;
@@ -92,7 +93,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
                 conta.setSenha(rs.getString("senha"));
                 conta.setSaldo(rs.getDouble("saldo"));
                 conta.setAtivo(rs.getBoolean("ativo"));
-                conta.setCl_id(rs.getInt("cl_id"));
+                conta.setCl_id(rs.getInt("id"));
                 list.add(conta);
             }
             return list;
@@ -112,7 +113,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             conta.setSenha(rs.getString("senha"));
             conta.setSaldo(rs.getDouble("saldo"));
             conta.setAtivo(rs.getBoolean("ativo"));
-            conta.setCl_id(rs.getInt("cl_id"));
+            conta.setCl_id(rs.getInt("id"));
             return conta;
         } catch (SQLException ex) {
             System.out.println("Erro ao retornar uma conta pelo id: " + ex.getMessage());
@@ -133,7 +134,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             conta.setSenha(rs.getString("senha"));
             conta.setSaldo(rs.getDouble("saldo"));
             conta.setAtivo(rs.getBoolean("ativo"));
-            conta.setCl_id(rs.getInt("cl_id"));
+            conta.setCl_id(rs.getInt("id"));
             
             return conta;
         } catch (SQLException ex) {
@@ -155,7 +156,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             conta.setSenha(rs.getString("senha"));
             conta.setSaldo(rs.getDouble("saldo"));
             conta.setAtivo(rs.getBoolean("ativo"));
-            conta.setCl_id(rs.getInt("cl_id"));
+            conta.setCl_id(rs.getInt("id"));
             //conta.setCodigoReparticao("codigo_reparticao");
             ClienteDAO dao = new ClienteDAO();
             conta.setCliente(dao.getUmCliente(conta.getCl_id()));

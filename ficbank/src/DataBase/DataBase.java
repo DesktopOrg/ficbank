@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DataBase;
 
 import Configurations.Configurations;
@@ -44,7 +39,7 @@ public class DataBase {
     }
     
     private String generateConnectionString(){
-        return "jdbc:" + this.dbType + "://" + this.dbHost + ":" + this.dbPort + "/" + this.dbBase + "?useUnicode=true&characterEncoding=utf-8";
+        return "jdbc:" + this.dbType + "://" + this.dbHost + "/" + this.dbBase + "?useUnicode=true&characterEncoding=utf-8";
     }
     
     public void connect(){

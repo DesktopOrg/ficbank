@@ -46,7 +46,7 @@ public class DataBaseGeneric extends DataBase {
         this.checkConnection();
         if(!this.checkEmptyTable())
             return null;
-        return this.query("SELECT * FROM " + this.table + " WHERE cl_id = ?", id);
+        return this.query("SELECT * FROM " + this.table + " WHERE id = ?", id);
     }
     
     public ResultSet getUserLogin(String login, String senha){
@@ -60,7 +60,7 @@ public class DataBaseGeneric extends DataBase {
         this.checkConnection();
         if(!this.checkEmptyTable())
             return null;
-        return this.query("SELECT * FROM " + this.table + " WHERE co_id = ? and codigo_reparticao = ?", codigoConta, codigoReparticao);
+        return this.query("SELECT * FROM " + this.table + " WHERE id = ? and codigo_reparticao = ?", codigoConta, codigoReparticao);
     }
     
     public ResultSet getAll(){

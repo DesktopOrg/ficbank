@@ -101,7 +101,7 @@ public class ReparticaoController {
                 
                 
                 // Cadastrar Usuarios da transação
-                // Campos: id_transacao, id_conta_criador, id_conta_repartidor
+                // Campos: id, id_transacao, id_conta_criador, id_conta_repartidor, aprovado
             } else {
                 JOptionPane.showMessageDialog(null, "Lista de contas para repartir o debito vazia! Adicione mais conta.", "Erro ao salvar", JOptionPane.ERROR_MESSAGE);
             }
