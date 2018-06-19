@@ -10,12 +10,12 @@ package Model;
  * @author kamimuraf
  */
 public class Conta {
-    private int co_id;
+    private int id;
     private String user;
     private String senha;
     private double saldo;
-    private int cl_id;
     private boolean ativo;
+    private boolean admin;
     private String codigoReparticao;
     private Cliente cliente;
     
@@ -24,24 +24,23 @@ public class Conta {
         this.senha = senha;
     }
 
-    public Conta(int co_id, String user, String senha, double saldo, int cl_id, boolean ativo) {
-        this.co_id = co_id;
+    public Conta(int id, String user, String senha, double saldo, int cl_id, boolean ativo) {
+        this.id = id;
         this.user = user;
         this.senha = senha;
         this.saldo = saldo;
-        this.cl_id = cl_id;
         this.ativo = ativo;
     }
 
     public Conta() {
     }
     
-    public int getCo_id() {
-        return co_id;
+    public int getId() {
+        return id;
     }
 
-    public void setCo_id(int co_id) {
-        this.co_id = co_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUser() {
@@ -67,15 +66,7 @@ public class Conta {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
-    public int getCl_id() {
-        return cl_id;
-    }
-
-    public void setCl_id(int cl_id) {
-        this.cl_id = cl_id;
-    }
-
+    
     public boolean isAtivo() {
         return ativo;
     }
@@ -98,5 +89,13 @@ public class Conta {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }

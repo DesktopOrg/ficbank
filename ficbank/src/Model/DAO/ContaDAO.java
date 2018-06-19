@@ -6,7 +6,6 @@
 package Model.DAO;
 
 import Configurations.ConfigurationsPhpMyAdmin;
-import Configurations.ConfigurationsMySQL;
 import DataBase.DataBaseGeneric;
 import Model.Conta;
 import Model.Interfaces.ImplementConta;
@@ -23,8 +22,10 @@ import java.util.Map;
  */
 public class ContaDAO extends DataBaseGeneric implements ImplementConta{
      public ArrayList<Conta> list;
+     private ClienteDAO dao;
      public ContaDAO(){
-        super(new ConfigurationsMySQL(), "conta");
+        super(new ConfigurationsPhpMyAdmin(), "conta");
+        dao = new ClienteDAO();
     }
     @Override
     public void insert(Conta conta) {
@@ -32,9 +33,10 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         mapObj.put("user", conta.getUser());
         mapObj.put("senha", conta.getSenha());
         mapObj.put("saldo", conta.getSaldo());
+        mapObj.put("codigo_reparticao", conta.getCodigoReparticao());
         mapObj.put("ativo", conta.isAtivo());
-        mapObj.put("id", conta.getCl_id());
-
+        mapObj.put("isAdmin", conta.isAdmin());
+        mapObj.put("id_cliente", conta.getCliente().getId());
         
         this.genericInsert(mapObj);
     }
@@ -47,8 +49,10 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         mapObj.put("senha", conta.getSenha());
         mapObj.put("saldo", conta.getSaldo());
         mapObj.put("ativo", conta.isAtivo());
-        mapObj.put("id", conta.getCl_id());
-        mapConditions.put("id", conta.getCo_id());
+        mapObj.put("codigo_reparticao", conta.getCodigoReparticao());
+        mapObj.put("id_cliente", conta.getCliente().getId());
+        mapObj.put("isAdmin", conta.isAdmin());
+        mapConditions.put("id", conta.getId());
         this.genericUpdate(mapObj, mapConditions);
     }
 
@@ -66,17 +70,17 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             ResultSet rs = this.getLike("user", user);
             while (rs.next()) { 
                 Conta conta = new Conta();
-                conta.setCo_id(rs.getInt(1));
+                conta.setId(rs.getInt(1));
                 conta.setUser(rs.getString("user"));
                 conta.setSenha(rs.getString("senha"));
                 conta.setSaldo(rs.getDouble("saldo"));
                 conta.setAtivo(rs.getBoolean("ativo"));
-                conta.setCl_id(rs.getInt("id"));
+                conta.setCliente(dao.getUmCliente(rs.getInt("id_cliente")));
                 list.add(conta);
             }
             return list;
         } catch (SQLException ex){
-            System.out.println("Houve um erro ao obter um curso: " + ex.getMessage());
+            System.out.println("Houve um erro ao obter um usuario: " + ex.getMessage());
         }
         return null;
     }
@@ -88,12 +92,14 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         try {
             while(rs.next()){
                 Conta conta = new Conta();
-                conta.setCo_id(rs.getInt(1));
+                conta.setId(rs.getInt("id"));
                 conta.setUser(rs.getString("user"));
                 conta.setSenha(rs.getString("senha"));
                 conta.setSaldo(rs.getDouble("saldo"));
                 conta.setAtivo(rs.getBoolean("ativo"));
-                conta.setCl_id(rs.getInt("id"));
+                conta.setAdmin(rs.getBoolean("isAdmin"));
+                conta.setCodigoReparticao(rs.getString("codigo_reparticao"));
+                conta.setCliente(dao.getUmCliente(rs.getInt("id_cliente")));
                 list.add(conta);
             }
             return list;
@@ -108,12 +114,14 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         ResultSet rs = this.getOne(id);
         Conta conta = new Conta();
         try {
-            conta.setCo_id(rs.getInt(1));
+            conta.setId(rs.getInt("id"));
             conta.setUser(rs.getString("user"));
             conta.setSenha(rs.getString("senha"));
             conta.setSaldo(rs.getDouble("saldo"));
             conta.setAtivo(rs.getBoolean("ativo"));
-            conta.setCl_id(rs.getInt("id"));
+            conta.setAdmin(rs.getBoolean("isAdmin"));
+            conta.setCodigoReparticao(rs.getString("codigo_reparticao"));
+            conta.setCliente(dao.getUmCliente(rs.getInt("id_cliente")));
             return conta;
         } catch (SQLException ex) {
             System.out.println("Erro ao retornar uma conta pelo id: " + ex.getMessage());
@@ -129,12 +137,14 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             if (!rs.next())
                 return null;
             
-            conta.setCo_id(rs.getInt(1));
+            conta.setId(rs.getInt("id"));
             conta.setUser(rs.getString("user"));
             conta.setSenha(rs.getString("senha"));
             conta.setSaldo(rs.getDouble("saldo"));
             conta.setAtivo(rs.getBoolean("ativo"));
-            conta.setCl_id(rs.getInt("id"));
+            conta.setAdmin(rs.getBoolean("isAdmin"));
+            conta.setCodigoReparticao(rs.getString("codigo_reparticao"));
+            conta.setCliente(dao.getUmCliente(rs.getInt("id_cliente")));
             
             return conta;
         } catch (SQLException ex) {
@@ -151,15 +161,13 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             if (!rs.next())
                 return null;
             
-            conta.setCo_id(rs.getInt(1));
+            conta.setId(rs.getInt(1));
             conta.setUser(rs.getString("user"));
             conta.setSenha(rs.getString("senha"));
             conta.setSaldo(rs.getDouble("saldo"));
             conta.setAtivo(rs.getBoolean("ativo"));
-            conta.setCl_id(rs.getInt("id"));
+            conta.setCliente(dao.getUmCliente(rs.getInt("id")));
             //conta.setCodigoReparticao("codigo_reparticao");
-            ClienteDAO dao = new ClienteDAO();
-            conta.setCliente(dao.getUmCliente(conta.getCl_id()));
             
             return conta;
         } catch (SQLException ex) {

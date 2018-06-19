@@ -60,7 +60,7 @@ public class ClienteController {
     public void getDataField(){
         int row = panel.getTableCliente().getSelectedRow();
         if(row != -1){
-            panel.getTxt_id().setText(String.valueOf(list.get(row).getCl_id()));
+            panel.getTxt_id().setText(String.valueOf(list.get(row).getId()));
             panel.getTxt_nome().setText(list.get(row).getName());
             panel.getTxt_email().setText(list.get(row).getEmail());
             panel.getTxt_telefone().setText(list.get(row).getTelefone());
@@ -91,7 +91,7 @@ public class ClienteController {
     
     public void update(){
         Cliente cliente = new Cliente();
-        cliente.setCl_id(Integer.parseInt(panel.getTxt_id().getText()));
+        cliente.setId(Integer.parseInt(panel.getTxt_id().getText()));
         cliente.setName(panel.getTxt_nome().getText());
         cliente.setEmail(panel.getTxt_email().getText());
         cliente.setTelefone(panel.getTxt_telefone().getText());
@@ -202,7 +202,7 @@ public class ClienteController {
         panel.getTxt_bairro().setText(c.getBairro());
         panel.getTxt_cpf().setText(c.getCpf());
         panel.getChkAtivo().setSelected(c.isAtivo());
-        panel.getTxt_id().setText(Integer.toString(c.getCl_id()));
+        panel.getTxt_id().setText(Integer.toString(c.getId()));
     
     }
     public Cliente montarObj(){

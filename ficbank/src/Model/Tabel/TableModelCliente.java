@@ -35,7 +35,7 @@ public class TableModelCliente extends AbstractTableModel{
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
-            case 0 : return list.get(rowIndex).getCl_id();
+            case 0 : return list.get(rowIndex).getId();
             case 1 : return list.get(rowIndex).getName();
             case 2 : return list.get(rowIndex).getTelefone();
             case 3 : return list.get(rowIndex).getEmail();

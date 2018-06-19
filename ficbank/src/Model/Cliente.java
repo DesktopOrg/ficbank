@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author kamimuraf
  */
 public class Cliente implements Serializable{
-    private int cl_id;
+    private int id;
     private String name;
     private String telefone;
     private String email;
@@ -24,8 +24,8 @@ public class Cliente implements Serializable{
     private String cpf;
     private boolean ativo;
 
-    public Cliente(int cl_id, String name, String telefone, String email, String estado, String cidade, String logradouro, String numero, String bairro, String cpf, boolean ativo) {
-        this.cl_id = cl_id;
+    public Cliente(int id, String name, String telefone, String email, String estado, String cidade, String logradouro, String numero, String bairro, String cpf, boolean ativo) {
+        this.id = id;
         this.name = name;
         this.telefone = telefone;
         this.email = email;
@@ -42,12 +42,12 @@ public class Cliente implements Serializable{
        
     }
        
-    public int getCl_id() {
-        return cl_id;
+    public int getId() {
+        return id;
     }
 
-    public void setCl_id(int cl_id) {
-        this.cl_id = cl_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

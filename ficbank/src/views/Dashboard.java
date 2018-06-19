@@ -5,7 +5,6 @@
  */
 package views;
 
-import Model.Cliente;
 import Model.Conta;
 import controllers.DashboardController;
 import java.awt.Color;
@@ -84,9 +83,9 @@ public class Dashboard extends javax.swing.JFrame {
         panelDadosPessoais.setVisible(false);
     }
 
-    public Dashboard(Conta conta, Cliente cliente) {
+    public Dashboard(Conta conta) {
         initComponents();
-        controller = new DashboardController(conta, cliente, this);
+        controller = new DashboardController(conta);
     }
 
 

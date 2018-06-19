@@ -6,7 +6,6 @@
 package Model.DAO;
 
 import Configurations.ConfigurationsPhpMyAdmin;
-import Configurations.ConfigurationsMySQL;
 import DataBase.DataBaseGeneric;
 import Model.Cliente;
 import Model.Interfaces.ImplementCliente;
@@ -26,7 +25,7 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
     public ArrayList<Cliente> list;
     
     public ClienteDAO(){
-        super(new ConfigurationsMySQL(), "cliente");
+        super(new ConfigurationsPhpMyAdmin(), "cliente");
     }
     
     @Override
@@ -61,7 +60,7 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
         mapObj.put("bairro", cliente.getBairro());
         mapObj.put("cpf", cliente.getCpf());
         mapObj.put("ativo", cliente.isAtivo());
-        mapConditions.put("id", cliente.getCl_id());
+        mapConditions.put("id", cliente.getId());
         this.genericUpdate(mapObj, mapConditions);
     }
     
@@ -79,7 +78,7 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
             ResultSet rs = this.getLike("name", nome);
             while (rs.next()) { 
                 Cliente cliente = new Cliente();
-                cliente.setCl_id(rs.getInt(1));
+                cliente.setId(rs.getInt(1));
                 cliente.setName(rs.getString("name"));
                 cliente.setEmail(rs.getString("email"));
                 cliente.setTelefone(rs.getString("telefone"));
@@ -106,7 +105,7 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
         try {
             while(rs.next()){
                 Cliente cliente = new Cliente();
-                cliente.setCl_id(rs.getInt(1));
+                cliente.setId(rs.getInt(1));
                 cliente.setName(rs.getString("name"));
                 cliente.setEmail(rs.getString("email"));
                 cliente.setTelefone(rs.getString("telefone"));
@@ -132,7 +131,7 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
         Cliente cliente = new Cliente();
         try {
             if (rs.next()) {
-                cliente.setCl_id(rs.getInt(1));
+                cliente.setId(rs.getInt(1));
                 cliente.setName(rs.getString("name"));
                 cliente.setEmail(rs.getString("email"));
                 cliente.setTelefone(rs.getString("telefone"));
