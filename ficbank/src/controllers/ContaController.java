@@ -163,7 +163,7 @@ public class ContaController {
     
     public void GeraRelatorio(){
         try {
-            new ReportContas().generate("report.jrxml");
+            new ReportContas().generate("reportConta.jrxml");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -58,7 +58,7 @@ public class ReportContas {
 
         //executa o relatório
         Map params = new HashMap();
-        params.put("HEADER", "Relatório de Contas");
+        params.put("HEADER", "FicBank  - Relatório de Contas");
         Date hoje = new Date();
         SimpleDateFormat df;
         df = new SimpleDateFormat("dd/MM/yyyy");;
@@ -68,5 +68,6 @@ public class ReportContas {
         //exibe o resultado
         JasperViewer viewer = new JasperViewer(print, true);
         viewer.show();
+        
     }
 }
