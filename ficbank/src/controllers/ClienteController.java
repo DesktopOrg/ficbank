@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import views.CadastroCliente;
+import views.panels.AdmCadCliente;
 
 /**
  *
@@ -25,11 +25,11 @@ import views.CadastroCliente;
  */
 public class ClienteController {
     
-    private final CadastroCliente panel;
+    private final AdmCadCliente panel;
     private final ImplementCliente implementCliente;
     private List<Cliente> list;
 
-    public ClienteController(CadastroCliente panel) {
+    public ClienteController(AdmCadCliente panel) {
         this.panel = panel;
         implementCliente = new ClienteDAO();
         list = implementCliente.getAllCliente();
@@ -85,7 +85,7 @@ public class ClienteController {
         cliente.setNumero(panel.getTxt_numero().getText());
         cliente.setBairro(panel.getTxt_bairro().getText());
         cliente.setCpf(panel.getTxt_cpf().getText());
-        cliente.setAtivo(panel.getChkAtivo().isSelected());
+        cliente.setAtivo(true);
         implementCliente.insert(cliente);
     }
     

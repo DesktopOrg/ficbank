@@ -182,13 +182,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAcessarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        views.Conta conta = new views.Conta();
-        conta.setVisible(true);        // TODO add your handling code here:
+        //views.Conta conta = new views.Conta();
+        //conta.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        CadastroCliente cliente = new CadastroCliente();
-        cliente.setVisible(true);         // TODO add your handling code here:
+        //CadastroCliente cliente = new CadastroCliente();
+        //cliente.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnAcessarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAcessarKeyPressed

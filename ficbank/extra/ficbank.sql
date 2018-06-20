@@ -28,6 +28,9 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `cliente`
 --
 
+DROP DATABASE IF EXISTS `ficbank`;
+CREATE DATABASE `ficbank`;
+USE `ficbank`;
 DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
@@ -48,7 +51,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `name`, `telefone`, `email`, `estado`, `cidade`, `logradouro`, `numero`, `bairro`, `cpf`, `ativo`) VALUES
-(1, 'kassia', '', '', NULL, NULL, NULL, NULL, NULL, '1478523691', NULL);
+(1, 'Adm', '', '', NULL, NULL, NULL, NULL, NULL, '1478523691', NULL);
+INSERT INTO `cliente` (`id`, `name`, `telefone`, `email`, `estado`, `cidade`, `logradouro`, `numero`, `bairro`, `cpf`, `ativo`) VALUES
+(2 , 'kassia', '', '', NULL, NULL, NULL, NULL, NULL, '1478523691', NULL);
 
 -- --------------------------------------------------------
 
@@ -62,16 +67,19 @@ CREATE TABLE `conta` (
   `user` varchar(20) NOT NULL,
   `senha` varchar(20) NOT NULL,
   `saldo` double DEFAULT NULL,
-  `ativo` tinyint(1) DEFAULT NULL,
-  `id_cliente` int(11) NOT NULL
+  `ativo`tinyint(1) DEFAULT 1,
+  `id_cliente` int(11) NOT NULL,
+   `codigo_reparticao` VARCHAR(20) NOT NULL,
+  `isAdmin` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `conta`
 --
 
-INSERT INTO `conta` (`id`, `user`, `senha`, `saldo`, `ativo`, `id_cliente`) VALUES
-(2, 'kassia', '123', -30, NULL, 1);
+INSERT INTO `conta` (`id`, `user`, `senha`, `saldo`, `ativo`, `id_cliente`, `codigo_reparticao`, `isAdmin`) VALUES
+(1, 'adm', 'adm', 0, 1, 1, 'adm', 1 ),
+(2, 'kassia', '123', -30, 1, 2,'1234', 1);
 
 -- --------------------------------------------------------
 

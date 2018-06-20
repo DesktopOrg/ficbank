@@ -116,7 +116,8 @@ public class ClienteDAO extends DataBaseGeneric implements ImplementCliente{
                 cliente.setBairro(rs.getString("bairro"));
                 cliente.setCpf(rs.getString("cpf"));
                 cliente.setAtivo(rs.getBoolean("ativo"));
-                list.add(cliente);
+                if(cliente.getId() != 1)
+                    list.add(cliente);
             }
             return list;
         } catch (SQLException ex) {

@@ -8,6 +8,7 @@ package controllers;
 import Model.Conta;
 import Model.DAO.ContaDAO;
 import javax.swing.JOptionPane;
+import views.AdmView;
 import views.Login;
 
 /**
@@ -38,13 +39,21 @@ public class LoginController {
     private void validateClient(String login, String senha) {
         ContaDAO dao = new ContaDAO();
         Conta conta = dao.login(login, senha);
-        if (conta != null) {
+        if(conta.isAdmin()){
+            AdmView adm = new AdmView();
+            adm.setVisible(true);
+            loginView.dispose();
+                    
+        }else{
+            if (conta != null) {
             DashboardController controller = new DashboardController(conta);
             controller.navigateToDashboard();
             loginView.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Falha no login, conta não encontrada no banco de dados! Tente Novamente.", "Conta não encontrada", JOptionPane.ERROR_MESSAGE);
         }
+        }
+        
         
     }
 }

@@ -91,6 +91,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         ResultSet rs = this.getAll();
         try {
             while(rs.next()){
+               
                 Conta conta = new Conta();
                 conta.setId(rs.getInt("id"));
                 conta.setUser(rs.getString("user"));
@@ -100,7 +101,8 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
                 conta.setAdmin(rs.getBoolean("isAdmin"));
                 conta.setCodigoReparticao(rs.getString("codigo_reparticao"));
                 conta.setCliente(dao.getUmCliente(rs.getInt("id_cliente")));
-                list.add(conta);
+                if(!conta.isAdmin())
+                    list.add(conta);
             }
             return list;
         } catch (SQLException ex) {
@@ -167,7 +169,7 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
             conta.setSaldo(rs.getDouble("saldo"));
             conta.setAtivo(rs.getBoolean("ativo"));
             conta.setCliente(dao.getUmCliente(rs.getInt("id")));
-            //conta.setCodigoReparticao("codigo_reparticao");
+            conta.setCodigoReparticao("codigo_reparticao");
             
             return conta;
         } catch (SQLException ex) {
