@@ -11,6 +11,7 @@ import Model.DAO.ClienteDAO;
 import Model.DAO.ContaDAO;
 import Model.Interfaces.ImplementConta;
 import Model.Tabel.TableModelConta;
+import Report.ReportContas;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -64,7 +65,15 @@ public class ContaController {
     public void getDataField(){
         int row = panel.getTableConta().getSelectedRow();
         if(row != -1){
-  
+           Conta c = new Conta();
+           c = implementConta.getAllConta().get(row);
+             
+           panel.getTxt_id().setText(String.valueOf(list.get(row).getId()));
+           panel.getTxt_login().setText(c.getUser());
+           panel.getTxt_senha().setText(c.getSenha());
+           panel.getTxt_senhaReparticao().setText(c.getCodigoReparticao());
+           panel.getTxt_saldo().setText(Double.toString(c.getSaldo()));
+           panel.getChkAtivo().setSelected(list.get(row).isAtivo());
         }
     }
     
@@ -125,43 +134,46 @@ public class ContaController {
 
         return true;  
     }
-}
-
-
-/*
-    public void update(){
-        Conta conta = new Conta();
-        conta.setName(panel.getTxt_nome().getText());
-        conta.setEmail(panel.getTxt_email().getText());
-        conta.setTelefone(panel.getTxt_telefone().getText());
-        conta.setEstado(panel.getTxt_estado().getText());
-        conta.setCidade(panel.getTxt_cidade().getText());
-        conta.setLogradouro(panel.getTxt_logradouro().getText());
-        conta.setNumero(panel.getTxt_numero().getText());
-        conta.setBairro(panel.getTxt_bairro().getText());
-        conta.setCpf(panel.getTxt_cpf().getText());
-        conta.setAtivo(panel.getChkAtivo().isSelected());
-        implementConta.update(conta);
-    }
-    
-   
-    
-    public void getData(){
-        if (panel.getTxt_nomeSearch().getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(panel, "Digite um nome de curso para buscar.", null, JOptionPane.WARNING_MESSAGE);
+     public void getData(){
+        if (panel.getTxt_userSearch().getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(panel, "Digite um nome de usuário para buscar.", null, JOptionPane.WARNING_MESSAGE);
             return;
         }
-        String name = panel.getTxt_nome().getText();
-        implementConta.getContaPorNome(name);
+        String name = panel.getTxt_userSearch().getText();
+        implementConta.getContaPorUser(name);
         this.filterTable(name);
     }
     
     public void filterTable(String name){
-        list = implementConta.getContaPorNome(name);
+        list = implementConta.getContaPorUser(name);
         panel.getTableConta().setModel(new TableModelConta(list));
     }
     
-   
+    public void update(){
+        Conta conta = new Conta();
+        conta.setUser(panel.getTxt_login().getText());
+        conta.setSenha(panel.getTxt_senha().getPassword().toString());
+        conta.setSaldo(Double.parseDouble(panel.getTxt_saldo().getText()));
+        conta.setCodigoReparticao(panel.getTxt_senhaReparticao().getPassword().toString());
+        Cliente c = (Cliente) panel.getCb_clientes().getSelectedItem();
+        conta.setCliente(c);
+        conta.setAtivo(panel.getChkAtivo().isSelected());
+        implementConta.update(conta);
+    }
+    
+    public void GeraRelatorio(){
+        try {
+            new ReportContas().generate("report.jrxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+}
+    
+}
+
+
+/*  
     public void preencheCampos(Conta c){
         panel.getTxt_nome().setText(c.getName());
         panel.getTxt_telefone().setText(c.getTelefone());
@@ -174,6 +186,6 @@ public class ContaController {
         panel.getTxt_cpf().setText(c.getCpf());
         panel.getChkAtivo().setSelected(c.isAtivo());
         panel.getTxt_id().setText(Integer.toString(c.getCl_id()));
-    
+
     }
 */

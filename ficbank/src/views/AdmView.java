@@ -351,7 +351,7 @@ GridBagLayout layout = new GridBagLayout();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MainPanel.setMinimumSize(new java.awt.Dimension(850, 670));
+        MainPanel.setMinimumSize(new java.awt.Dimension(834, 664));
         MainPanel.setPreferredSize(new java.awt.Dimension(834, 664));
         MainPanel.setLayout(new java.awt.BorderLayout());
         Scrll_solicitacao.setViewportView(MainPanel);
