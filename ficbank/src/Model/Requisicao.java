@@ -5,27 +5,40 @@
  */
 package Model;
 
+import java.util.Date;
+
 /**
  *
  * @author kamimuraf
  */
 public class Requisicao {
-    private int re_id;
+    private int id;
     private double valor;
-    private String dia;
+    private Date data;
     private boolean aprovado;
     private boolean visualizado;
-    private Operacao operacao;
-    private int ta_id;
-    private int co_idRemetente;
-    private int co_idDestino;
+    private Transacao transacao;
+    private Conta conta;
 
-    public int getRe_id() {
-        return re_id;
+    public Requisicao(int id, double valor, Date data, boolean aprovado, boolean visualizado, Transacao transacao, Conta conta) {
+        this.id = id;
+        this.valor = valor;
+        this.data = data;
+        this.aprovado = aprovado;
+        this.visualizado = visualizado;
+        this.transacao = transacao;
+        this.conta = conta;
     }
 
-    public void setRe_id(int re_id) {
-        this.re_id = re_id;
+    public Requisicao() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public double getValor() {
@@ -36,12 +49,12 @@ public class Requisicao {
         this.valor = valor;
     }
 
-    public String getDia() {
-        return dia;
+    public Date getData() {
+        return data;
     }
 
-    public void setDia(String dia) {
-        this.dia = dia;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public boolean isAprovado() {
@@ -60,34 +73,21 @@ public class Requisicao {
         this.visualizado = visualizado;
     }
 
-    public Operacao getOperacao() {
-        return operacao;
+    public Transacao getTransacao() {
+        return transacao;
     }
 
-    public int getTa_id() {
-        return ta_id;
+    public void setTransacao(Transacao transacao) {
+        this.transacao = transacao;
     }
 
-    public void setTa_id(int ta_id) {
-        this.ta_id = ta_id;
+    public Conta getConta() {
+        return conta;
     }
 
-    public int getCo_idRemetente() {
-        return co_idRemetente;
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 
-    public void setCo_idRemetente(int co_idRemetente) {
-        this.co_idRemetente = co_idRemetente;
-    }
-
-    public int getCo_idDestino() {
-        return co_idDestino;
-    }
-
-    public void setCo_idDestino(int co_idDestino) {
-        this.co_idDestino = co_idDestino;
-    }
-    
-   
     
 }

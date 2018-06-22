@@ -19,6 +19,14 @@ public class PanelCadastroReparticao extends javax.swing.JPanel {
 
     private DashboardController dashboard;
     private ReparticaoController controller;
+
+    public DashboardController getDashboard() {
+        return dashboard;
+    }
+
+    public ReparticaoController getController() {
+        return controller;
+    }
     
     public JButton getBtn_adicionar_conta() {
         return btn_adicionar_conta;

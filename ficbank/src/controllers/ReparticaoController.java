@@ -7,6 +7,9 @@ package controllers;
 
 import Model.Conta;
 import Model.DAO.ContaDAO;
+import Model.DAO.TransacaoDAO;
+import Model.TipoEnum;
+import Model.Transacao;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -49,7 +52,13 @@ public class ReparticaoController {
     
     public void removeConta() {
         if (!modelList.isEmpty()) {
-            modelList.removeElementAt(panel.getList_contas_reparticao().getSelectedIndex());
+            for (Conta c: contasReparticaoList) {
+                if (panel.getList_contas_reparticao().getSelectedValue().contains(String.valueOf(c.getId()))) {
+                    contasReparticaoList.remove(c);
+                    modelList.removeElementAt(panel.getList_contas_reparticao().getSelectedIndex());
+                    break;
+                }
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Não é possível excluir, a lista está vazia.", "Erro ao excluir conta de repartição", JOptionPane.ERROR_MESSAGE);
         }
@@ -62,33 +71,42 @@ public class ReparticaoController {
         if(validaAdicaoDeContaReparticao(numeroConta, codigoReparticao)){
             Conta reparticao = dao.getContaReparticao(Integer.parseInt(numeroConta), codigoReparticao);
 
-            if (reparticao != null && verificaSeExisteNasContasAdicionadas(reparticao)) {
-                contasReparticaoList.add(reparticao);
-                String reparticaoList = "("+ reparticao.getId() + ") - " + reparticao.getCliente().getName();
-                adicionarReparticaoListaView(reparticaoList);
+            if (reparticao != null) {
+                if (!verificaSeExisteNasContasAdicionadas(reparticao)) {
+                    contasReparticaoList.add(reparticao);
+                    String reparticaoList = "("+ reparticao.getId() + ") - " + reparticao.getCliente().getName();
+                    adicionarReparticaoListaView(reparticaoList);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Conta já está adicionada na lista! Insira uma conta diferente.", "Erro adicionar conta repartição", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Conta Inválida! Tente Novamente.", "Erro adicionar conta repartição", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
     
     private boolean verificaSeExisteNasContasAdicionadas(Conta conta) {
-        return contasReparticaoList.indexOf(conta) != -1;
+        for (Conta c : contasReparticaoList) {
+            if (c.getId() == conta.getId()) {
+                return true;
+            }
+        }
+        return false;
     }
     
     public boolean validaAdicaoDeContaReparticao(String numero, String codigo) {
-        if (!numero.matches("^[a-Z]") || numero.isEmpty()) {
-            if (codigo.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Numero da Conta e Código de Repartição Inválidos! Tente Novamente.", "Erro adicionar conta repartição", JOptionPane.ERROR_MESSAGE);
-                return false;
-            } else if(!codigo.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Numero da conta Inválido! Tente Novamente.", "Erro adicionar conta repartição", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-        }
-        if(codigo.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Codigo de repartição Inválido! Tente Novamente.", "Erro adicionar conta repartição", JOptionPane.ERROR_MESSAGE);
+        if (!numero.isEmpty() && !codigo.isEmpty()) {
+            return true;
+        } else if(!numero.isEmpty() && codigo.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Numero da Conta Inválido! Tente Novamente.", "Erro adicionar conta repartição", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else if(numero.isEmpty() && !codigo.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Código da Conta Inválido! Tente Novamente.", "Erro adicionar conta repartição", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else {
+            JOptionPane.showMessageDialog(null, "Numero da Conta e Código de Repartição Inválidos! Tente Novamente.", "Erro adicionar conta repartição", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        return true;
     }
     
     private void limparCamposCadastroContaReparticao() {
@@ -103,7 +121,9 @@ public class ReparticaoController {
         } else {
             double debitoTotal = Double.parseDouble(panel.getTxt_total_dabito().getText());
             if (!contasReparticaoList.isEmpty()) {
-                double debitoRepartido = debitoTotal / contasReparticaoList.size() + 1;
+                TransacaoDAO dao = new TransacaoDAO();
+                Transacao transacao = new Transacao(panel.getDashboard().conta, debitoTotal, TipoEnum.REQUISICAO);
+                dao.insert(transacao);
                 
                 // Cadastrar Transação (1 transação para muitos usuarios na transação)
                 // Campos: id, Valor Total, Valor Repartido, data_criada
@@ -116,6 +136,4 @@ public class ReparticaoController {
             }
         }
     }
-    
-    
 }

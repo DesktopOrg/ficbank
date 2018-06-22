@@ -21,9 +21,9 @@ import java.util.Map;
  * @author kamimuraf
  */
 public class ContaDAO extends DataBaseGeneric implements ImplementConta{
-     public ArrayList<Conta> list;
-     private ClienteDAO dao;
-     public ContaDAO(){
+    public ArrayList<Conta> list;
+    private ClienteDAO dao;
+    public ContaDAO() {
         super(new ConfigurationsPhpMyAdmin(), "conta");
         dao = new ClienteDAO();
     }
