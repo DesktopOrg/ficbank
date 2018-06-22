@@ -157,20 +157,21 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
 
     @Override
     public Conta getContaReparticao(int codigoConta, String codigoReparticao) {
-        ResultSet rs = this.getUserReparticao(codigoConta, codigoReparticao);
-        Conta conta = new Conta();
+        ResultSet rs = this.getOne(codigoConta);
+        Conta conta = null;
         try {
             if (!rs.next())
                 return null;
-            
-            conta.setId(rs.getInt(1));
-            conta.setUser(rs.getString("user"));
-            conta.setSenha(rs.getString("senha"));
-            conta.setSaldo(rs.getDouble("saldo"));
-            conta.setAtivo(rs.getBoolean("ativo"));
-            conta.setCliente(dao.getUmCliente(rs.getInt("id")));
-            conta.setCodigoReparticao("codigo_reparticao");
-            
+            if (rs.getString("codigo_reparticao").equals(codigoReparticao)) {
+                conta = new Conta();
+                conta.setId(rs.getInt("id"));
+                conta.setUser(rs.getString("user"));
+                conta.setSenha(rs.getString("senha"));
+                conta.setSaldo(rs.getDouble("saldo"));
+                conta.setAtivo(rs.getBoolean("ativo"));
+                conta.setCliente(dao.getUmCliente(rs.getInt("id_cliente")));
+                conta.setCodigoReparticao(rs.getString("codigo_reparticao"));
+            }
             return conta;
         } catch (SQLException ex) {
             System.out.println("Erro ao encontrar conta para particionar um debito: " + ex.getMessage());

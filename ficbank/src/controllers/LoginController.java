@@ -42,8 +42,7 @@ public class LoginController {
         if(conta.isAdmin()){
             AdmView adm = new AdmView();
             adm.setVisible(true);
-            loginView.dispose();
-                    
+            loginView.dispose();      
         }else{
             if (conta != null) {
             DashboardController controller = new DashboardController(conta);

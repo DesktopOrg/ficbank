@@ -77,9 +77,21 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        txt_login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_loginKeyPressed(evt);
+            }
+        });
+
         jLabel3.setFont(jLabel3.getFont().deriveFont(jLabel3.getFont().getSize()+16f));
         jLabel3.setForeground(new java.awt.Color(124, 189, 255));
         jLabel3.setText("Senha:");
+
+        txt_senha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_senhaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -194,6 +206,20 @@ public class Login extends javax.swing.JFrame {
     private void btnAcessarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAcessarKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAcessarKeyPressed
+
+    private void txt_senhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_senhaKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            controller.login();
+        }
+    }//GEN-LAST:event_txt_senhaKeyPressed
+
+    private void txt_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_loginKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            txt_senha.requestFocus();
+        }
+    }//GEN-LAST:event_txt_loginKeyPressed
 
     /**
      * @param args the command line arguments

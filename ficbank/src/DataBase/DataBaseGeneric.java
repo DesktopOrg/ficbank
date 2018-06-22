@@ -56,13 +56,6 @@ public class DataBaseGeneric extends DataBase {
         return this.query("SELECT * FROM " + this.table + " WHERE user = ? and senha = ?", login, senha);
     }
     
-    public ResultSet getUserReparticao(int codigoConta, String codigoReparticao){
-        this.checkConnection();
-        if(!this.checkEmptyTable())
-            return null;
-        return this.query("SELECT * FROM " + this.table + " WHERE id = ? and codigo_reparticao = ?", codigoConta, codigoReparticao);
-    }
-    
     public ResultSet getAll(){
         this.checkConnection();
         if(!this.checkEmptyTable())
@@ -75,6 +68,13 @@ public class DataBaseGeneric extends DataBase {
         if(!this.checkEmptyTable())
             return null;
         return this.query("SELECT * FROM " + this.table + " WHERE " + field + " LIKE '%" + value + "%'");
+    }
+    
+    public ResultSet getEquals(String field, String value){
+        this.checkConnection();
+        if(!this.checkEmptyTable())
+            return null;
+        return this.query("SELECT * FROM " + this.table + " WHERE " + field + " LIKE '" + value + "'");
     }
     
     public void genericInsert(Map<Object, Object> mapObj){
