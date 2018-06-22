@@ -49,6 +49,7 @@ public class DataBaseGeneric extends DataBase {
         return this.query("SELECT * FROM " + this.table + " WHERE id = ?", id);
     }
     
+    
     public ResultSet getUserLogin(String login, String senha){
         this.checkConnection();
         if(!this.checkEmptyTable())
@@ -71,6 +72,13 @@ public class DataBaseGeneric extends DataBase {
     }
     
     public ResultSet getLike(String field, String value){
+        this.checkConnection();
+        if(!this.checkEmptyTable())
+            return null;
+        return this.query("SELECT * FROM " + this.table + " WHERE " + field + " LIKE '%" + value + "%'");
+    }
+    
+    public ResultSet getLike(String field, int value){
         this.checkConnection();
         if(!this.checkEmptyTable())
             return null;

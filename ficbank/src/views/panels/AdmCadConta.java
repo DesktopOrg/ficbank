@@ -57,6 +57,7 @@ public class AdmCadConta extends javax.swing.JPanel {
         return txt_senhaReparticao;
     }
 
+    
     public JTextField getTxt_userSearch() {
         return txt_userSearch;
     }
@@ -111,9 +112,10 @@ public class AdmCadConta extends javax.swing.JPanel {
 
         lbl_nome_login.setFont(lbl_nome_login.getFont().deriveFont(lbl_nome_login.getFont().getSize()+10f));
         lbl_nome_login.setForeground(new java.awt.Color(49, 55, 78));
-        lbl_nome_login.setText("Nome Login");
+        lbl_nome_login.setText("Login");
 
         txt_login.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txt_login.setNextFocusableComponent(txt_saldo);
         txt_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_loginActionPerformed(evt);
@@ -138,6 +140,7 @@ public class AdmCadConta extends javax.swing.JPanel {
         chkAtivo.setBackground(new java.awt.Color(49, 55, 78));
         chkAtivo.setFont(new java.awt.Font("Tahoma", 0, 21)); // NOI18N
         chkAtivo.setForeground(new java.awt.Color(124, 189, 255));
+        chkAtivo.setSelected(true);
         chkAtivo.setText("Ativo");
         chkAtivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +218,7 @@ public class AdmCadConta extends javax.swing.JPanel {
             }
         });
 
+        cb_clientes.setNextFocusableComponent(txt_login);
         cb_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cb_clientesMouseClicked(evt);
@@ -270,7 +274,7 @@ public class AdmCadConta extends javax.swing.JPanel {
         lbl_nome_login1.setForeground(new java.awt.Color(49, 55, 78));
         lbl_nome_login1.setText("ID");
 
-        btnRelatorio.setText("Relatorio");
+        btnRelatorio.setText("Relatorio contas");
         btnRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRelatorioActionPerformed(evt);
@@ -293,15 +297,15 @@ public class AdmCadConta extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelMenuLayout.createSequentialGroup()
                         .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_senha))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_senhaReparticao, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_senha1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                            .addGroup(panelMenuLayout.createSequentialGroup()
+                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_senha))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_senhaReparticao, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_senha1)))
+                            .addComponent(jLabel7))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
@@ -317,7 +321,7 @@ public class AdmCadConta extends javax.swing.JPanel {
                                 .addGap(306, 306, 306)
                                 .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(btn_excluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(252, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelMenuLayout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -338,7 +342,7 @@ public class AdmCadConta extends javax.swing.JPanel {
                         .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelMenuLayout.createSequentialGroup()
                                 .addComponent(lbl_nome_login1)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 82, Short.MAX_VALUE))
                             .addComponent(txt_id))
                         .addGap(18, 18, 18)
                         .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,7 +351,8 @@ public class AdmCadConta extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(txt_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)))
                 .addGap(23, 23, 23))
         );
         panelMenuLayout.setVerticalGroup(
@@ -404,11 +409,11 @@ public class AdmCadConta extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 834, Short.MAX_VALUE)
+            .addGap(0, 859, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(34, 34, 34)))
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -470,7 +475,8 @@ public class AdmCadConta extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_excluir1ActionPerformed
 
     private void cb_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_clientesActionPerformed
-        // TODO add your handling code here:
+        this.cb_clientes.removeAllItems();
+        controller.carregaCb_cliente(this);        // TODO add your handling code here:
     }//GEN-LAST:event_cb_clientesActionPerformed
 
     private void cb_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_clientesMouseClicked

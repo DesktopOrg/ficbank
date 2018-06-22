@@ -61,6 +61,7 @@ GridBagLayout layout = new GridBagLayout();
         this.revalidate();
         this.pack();
         this.repaint(); 
+      
     
     }
     public AdmView(Conta conta, Cliente cliente) {

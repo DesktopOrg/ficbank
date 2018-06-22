@@ -29,4 +29,6 @@ public interface ImplementConta {
     public Conta getUmaConta(int id);
     
     public Conta login(String login, String senha);
+    
+    public List<Conta> getClienteConta(int id_cliente);
 }

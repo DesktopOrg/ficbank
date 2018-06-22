@@ -37,6 +37,7 @@ public class ContaController {
         this.panel = panel;
         implementConta = new ContaDAO();
         list = implementConta.getAllConta();
+        
     }
     
     public void carregaCb_cliente(views.panels.AdmCadConta panel){
@@ -86,7 +87,17 @@ public class ContaController {
         Cliente c = (Cliente) panel.getCb_clientes().getSelectedItem();
         conta.setCliente(c);
         conta.setAtivo(true); //sempre que for criado ele tem que ser ativo
-        implementConta.insert(conta);
+        if ( (implementConta.getClienteConta(c.getId())).isEmpty()){
+            if ( implementConta.getContaPorUser(conta.getUser()).isEmpty() ){
+                implementConta.insert(conta);
+            }else{
+               JOptionPane.showMessageDialog(null, "O login de usuário já existe. Não foi possível cadastrar", "Informação", JOptionPane.INFORMATION_MESSAGE); 
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Cliente já possui conta: " + implementConta.getClienteConta(c.getId()).get(0).getUser() , "Informação", JOptionPane.INFORMATION_MESSAGE); 
+        }
+        
+        
     }
     
     public void delete(){
@@ -152,9 +163,9 @@ public class ContaController {
     public void update(){
         Conta conta = new Conta();
         conta.setUser(panel.getTxt_login().getText());
-        conta.setSenha(panel.getTxt_senha().getPassword().toString());
+        //conta.setSenha(panel.getTxt_senha().getPassword().toString());
         conta.setSaldo(Double.parseDouble(panel.getTxt_saldo().getText()));
-        conta.setCodigoReparticao(panel.getTxt_senhaReparticao().getPassword().toString());
+        //conta.setCodigoReparticao(panel.getTxt_senhaReparticao().getPassword().toString());
         Cliente c = (Cliente) panel.getCb_clientes().getSelectedItem();
         conta.setCliente(c);
         conta.setAtivo(panel.getChkAtivo().isSelected());

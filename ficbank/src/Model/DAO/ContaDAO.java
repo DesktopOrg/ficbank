@@ -46,11 +46,11 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         Map<Object, Object> mapObj = new HashMap<>();
         Map<Object, Object> mapConditions = new HashMap<>();
         mapObj.put("user", conta.getUser());
-        mapObj.put("senha", conta.getSenha());
+        //mapObj.put("senha", conta.getSenha());
         mapObj.put("saldo", conta.getSaldo());
         mapObj.put("ativo", conta.isAtivo());
-        mapObj.put("codigo_reparticao", conta.getCodigoReparticao());
-        mapObj.put("id_cliente", conta.getCliente().getId());
+        //mapObj.put("codigo_reparticao", conta.getCodigoReparticao());
+        //mapObj.put("id_cliente", conta.getCliente().getId());
         mapObj.put("isAdmin", conta.isAdmin());
         mapConditions.put("id", conta.getId());
         this.genericUpdate(mapObj, mapConditions);
@@ -130,7 +130,29 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         }
         return null;
     }
-
+    
+    
+    @Override
+    public List<Conta> getClienteConta(int id_cliente) {
+        this.list = new ArrayList<>();
+        try {
+            ResultSet rs = this.getLike("id_cliente", id_cliente);
+            while (rs.next()) { 
+                Conta conta = new Conta();
+                conta.setId(rs.getInt(1));
+                conta.setUser(rs.getString("user"));
+                conta.setSenha(rs.getString("senha"));
+                conta.setSaldo(rs.getDouble("saldo"));
+                conta.setAtivo(rs.getBoolean("ativo"));
+                conta.setCliente(dao.getUmCliente(rs.getInt("id_cliente")));
+                list.add(conta);
+            }
+            return list;
+        } catch (SQLException ex){
+            System.out.println("Houve um erro ao obter um usuario: " + ex.getMessage());
+        }
+        return null;
+    }
     @Override
     public Conta login(String login, String senha) {
         ResultSet rs = this.getUserLogin(login, senha);
@@ -177,5 +199,6 @@ public class ContaDAO extends DataBaseGeneric implements ImplementConta{
         }
         return null;
     }
+    
     
 }
