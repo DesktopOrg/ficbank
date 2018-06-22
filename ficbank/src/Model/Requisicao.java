@@ -15,7 +15,7 @@ public class Requisicao {
     private String dia;
     private boolean aprovado;
     private boolean visualizado;
-    private int op_id;
+    private Operacao operacao;
     private int ta_id;
     private int co_idRemetente;
     private int co_idDestino;
@@ -60,12 +60,8 @@ public class Requisicao {
         this.visualizado = visualizado;
     }
 
-    public int getOp_id() {
-        return op_id;
-    }
-
-    public void setOp_id(int op_id) {
-        this.op_id = op_id;
+    public Operacao getOperacao() {
+        return operacao;
     }
 
     public int getTa_id() {

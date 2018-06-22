@@ -45,12 +45,18 @@ public class LoginController {
             loginView.dispose();      
         }else{
             if (conta != null) {
-            DashboardController controller = new DashboardController(conta);
-            controller.navigateToDashboard();
-            loginView.dispose();
-        } else {
+                if(conta.isAdmin()){
+                    AdmView adm = new AdmView();
+                    adm.setVisible(true);
+                    loginView.dispose();
+                 }else{
+                    DashboardController controller = new DashboardController(conta);
+                    controller.navigateToDashboard();
+                    loginView.dispose();
+                }
+            } else {
             JOptionPane.showMessageDialog(null, "Falha no login, conta não encontrada no banco de dados! Tente Novamente.", "Conta não encontrada", JOptionPane.ERROR_MESSAGE);
-        }
+            }
         }
         
         

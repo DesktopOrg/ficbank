@@ -30,12 +30,167 @@ public class PanelResumo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_quemTotal = new javax.swing.JLabel();
+        lbl_quemMais = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        lbl_saldo14 = new javax.swing.JLabel();
+        lbl_tagMais = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        lbl_saldo9 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        lbl_saldo15 = new javax.swing.JLabel();
+        lbl_tagTotal = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        lbl_saldo16 = new javax.swing.JLabel();
+        lbl_gastoMes = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        lbl_saldo8 = new javax.swing.JLabel();
+        lbl_saldo = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         lbl_saldo5 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        lbl_saldo7 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(725, 573));
 
-        jPanel7.setBackground(new java.awt.Color(76, 68, 118));
+        lbl_quemTotal.setFont(lbl_quemTotal.getFont().deriveFont(lbl_quemTotal.getFont().getStyle() | java.awt.Font.BOLD, lbl_quemTotal.getFont().getSize()+13));
+        lbl_quemTotal.setForeground(new java.awt.Color(23, 182, 142));
+        lbl_quemTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_quemTotal.setText("lbl_quemTotal");
+
+        lbl_quemMais.setFont(lbl_quemMais.getFont().deriveFont(lbl_quemMais.getFont().getStyle() | java.awt.Font.BOLD, lbl_quemMais.getFont().getSize()+13));
+        lbl_quemMais.setForeground(new java.awt.Color(76, 68, 118));
+        lbl_quemMais.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_quemMais.setText("lbl_quemMais");
+
+        jPanel16.setBackground(new java.awt.Color(76, 68, 118));
+
+        lbl_saldo14.setFont(lbl_saldo14.getFont().deriveFont(lbl_saldo14.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo14.getFont().getSize()+8));
+        lbl_saldo14.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_saldo14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo14.setText("Gastou mais com quem?");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lbl_saldo14, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_saldo14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+
+        lbl_tagMais.setFont(lbl_tagMais.getFont().deriveFont(lbl_tagMais.getFont().getStyle() | java.awt.Font.BOLD, lbl_tagMais.getFont().getSize()+13));
+        lbl_tagMais.setForeground(new java.awt.Color(76, 68, 118));
+        lbl_tagMais.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_tagMais.setText("lbl_tagMais");
+
+        jPanel11.setBackground(new java.awt.Color(76, 68, 118));
+
+        lbl_saldo9.setFont(lbl_saldo9.getFont().deriveFont(lbl_saldo9.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo9.getFont().getSize()+8));
+        lbl_saldo9.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_saldo9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo9.setText("Tag mais consumida");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(lbl_saldo9, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_saldo9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+
+        jPanel17.setBackground(new java.awt.Color(76, 68, 118));
+
+        lbl_saldo15.setFont(lbl_saldo15.getFont().deriveFont(lbl_saldo15.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo15.getFont().getSize()+8));
+        lbl_saldo15.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_saldo15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo15.setText("Gasto com a Tag");
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lbl_saldo15, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_saldo15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+
+        lbl_tagTotal.setBackground(new java.awt.Color(23, 182, 142));
+        lbl_tagTotal.setFont(lbl_tagTotal.getFont().deriveFont(lbl_tagTotal.getFont().getStyle() | java.awt.Font.BOLD, lbl_tagTotal.getFont().getSize()+13));
+        lbl_tagTotal.setForeground(new java.awt.Color(23, 182, 142));
+        lbl_tagTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_tagTotal.setText("lbl_tagTotal");
+
+        jPanel18.setBackground(new java.awt.Color(76, 68, 118));
+
+        lbl_saldo16.setFont(lbl_saldo16.getFont().deriveFont(lbl_saldo16.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo16.getFont().getSize()+8));
+        lbl_saldo16.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_saldo16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo16.setText("Gasto com a @");
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lbl_saldo16, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_saldo16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+
+        lbl_gastoMes.setFont(lbl_gastoMes.getFont().deriveFont(lbl_gastoMes.getFont().getStyle() | java.awt.Font.BOLD, lbl_gastoMes.getFont().getSize()+13));
+        lbl_gastoMes.setForeground(new java.awt.Color(23, 182, 142));
+        lbl_gastoMes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_gastoMes.setText("lbl_gastoMes");
+
+        jPanel10.setBackground(new java.awt.Color(76, 68, 118));
+
+        lbl_saldo8.setFont(lbl_saldo8.getFont().deriveFont(lbl_saldo8.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo8.getFont().getSize()+8));
+        lbl_saldo8.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_saldo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo8.setText("Gasto no mês");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(lbl_saldo8, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_saldo8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+
+        lbl_saldo.setBackground(new java.awt.Color(255, 102, 255));
+        lbl_saldo.setFont(lbl_saldo.getFont().deriveFont(lbl_saldo.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo.getFont().getSize()+13));
+        lbl_saldo.setForeground(new java.awt.Color(76, 68, 118));
+        lbl_saldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo.setText("lbl_saldo");
+
+        jPanel7.setBackground(new java.awt.Color(0, 204, 153));
 
         lbl_saldo5.setFont(lbl_saldo5.getFont().deriveFont(lbl_saldo5.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo5.getFont().getSize()+8));
         lbl_saldo5.setForeground(new java.awt.Color(255, 255, 255));
@@ -47,8 +202,8 @@ public class PanelResumo extends javax.swing.JPanel {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lbl_saldo5, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(lbl_saldo5, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -56,27 +211,112 @@ public class PanelResumo extends javax.swing.JPanel {
             .addComponent(lbl_saldo5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
+        jPanel9.setBackground(new java.awt.Color(76, 68, 118));
+
+        lbl_saldo7.setFont(lbl_saldo7.getFont().deriveFont(lbl_saldo7.getFont().getStyle() | java.awt.Font.BOLD, lbl_saldo7.getFont().getSize()+8));
+        lbl_saldo7.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_saldo7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_saldo7.setText("Saldo");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_saldo7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_saldo7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(308, 308, 308))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_gastoMes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_saldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lbl_tagMais, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_quemMais, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_tagTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_quemTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(505, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_saldo, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_gastoMes, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_tagTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                    .addComponent(lbl_tagMais, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_quemMais, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                    .addComponent(lbl_quemTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lbl_gastoMes;
+    private javax.swing.JLabel lbl_quemMais;
+    private javax.swing.JLabel lbl_quemTotal;
+    private javax.swing.JLabel lbl_saldo;
+    private javax.swing.JLabel lbl_saldo12;
+    private javax.swing.JLabel lbl_saldo13;
+    private javax.swing.JLabel lbl_saldo14;
+    private javax.swing.JLabel lbl_saldo15;
+    private javax.swing.JLabel lbl_saldo16;
     private javax.swing.JLabel lbl_saldo5;
+    private javax.swing.JLabel lbl_saldo7;
+    private javax.swing.JLabel lbl_saldo8;
+    private javax.swing.JLabel lbl_saldo9;
+    private javax.swing.JLabel lbl_tagMais;
+    private javax.swing.JLabel lbl_tagTotal;
     // End of variables declaration//GEN-END:variables
 }

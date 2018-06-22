@@ -31,11 +31,10 @@ public class Dashboard extends javax.swing.JFrame {
      * Creates new form Dashboard
      */
     public Dashboard() {
-        this.revalidate();
-        this.pack();
-        this.repaint();
-        initComponents();
+   
         
+        initComponents();
+        /*
         panelResumo = new PanelResumo();
         panelNotificacao = new PanelNotificacao();
         panelPagamento = new PanelPagamento();
@@ -74,18 +73,67 @@ public class Dashboard extends javax.swing.JFrame {
         MainPanel.add(panelCadastroReparticao, c);
         
         
-        // panelResumo.setVisible(true);
-        panelCadastroReparticao.setVisible(true);
-        panelResumo.setVisible(false);
+        panelResumo.setVisible(true);
+        panelCadastroReparticao.setVisible(false);
         panelNotificacao.setVisible(false);
         panelPagamento.setVisible(false);
         panelExtrato.setVisible(false);
-        panelDadosPessoais.setVisible(false);
+        panelDadosPessoais.setVisible(false);*/
+       
     }
 
     public Dashboard(Conta conta) {
         initComponents();
+        
         controller = new DashboardController(conta);
+ 
+        panelResumo = new PanelResumo();
+        panelNotificacao = new PanelNotificacao();
+        panelPagamento = new PanelPagamento();
+        panelExtrato = new PanelExtrato();
+        panelDadosPessoais = new PanelDadosPessoais();
+        panelCadastroReparticao = new PanelCadastroReparticao(controller);
+        
+        
+        
+        MainPanel.setLayout(layout);
+        
+        GridBagConstraints c = new GridBagConstraints();
+        
+        c.gridx = 0;
+        c.gridy = 0;
+        MainPanel.add(panelResumo, c);
+        
+        c.gridx = 0;
+        c.gridy = 0;
+        MainPanel.add(panelNotificacao, c);
+        
+        c.gridx = 0;
+        c.gridy = 0;
+        MainPanel.add(panelPagamento, c);
+        
+        c.gridx = 0;
+        c.gridy = 0;
+        MainPanel.add(panelExtrato, c);
+        
+        c.gridx = 0;
+        c.gridy = 0;
+        MainPanel.add(panelDadosPessoais, c);
+        
+        c.gridx = 0;
+        c.gridy = 0;
+        MainPanel.add(panelCadastroReparticao, c);
+        this.revalidate();
+        this.pack();
+        this.repaint();
+        
+        
+        panelResumo.setVisible(true);
+        panelNotificacao.setVisible(false);
+        panelCadastroReparticao.setVisible(false);
+        panelPagamento.setVisible(false);
+        panelExtrato.setVisible(false);
+        panelDadosPessoais.setVisible(false);
     }
 
 
@@ -99,6 +147,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         background1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         panelMenu = new javax.swing.JPanel();
         pnl_header = new javax.swing.JPanel();
         logo1 = new javax.swing.JLabel();
@@ -111,7 +160,7 @@ public class Dashboard extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         pnl_pagamento = new javax.swing.JPanel();
-        lbl_pagamentos = new javax.swing.JLabel();
+        lbl_transferencia = new javax.swing.JLabel();
         pnl_dadosPessoais = new javax.swing.JPanel();
         lbl_pagamentos2 = new javax.swing.JLabel();
         pnl_resumo = new javax.swing.JPanel();
@@ -124,6 +173,8 @@ public class Dashboard extends javax.swing.JFrame {
         lbl_pagamentos1 = new javax.swing.JLabel();
         pnl_sair = new javax.swing.JPanel();
         lbl_pagamentos3 = new javax.swing.JLabel();
+        pnl_reparticao = new javax.swing.JPanel();
+        lbl_Reparticao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Dashboard");
@@ -171,7 +222,7 @@ public class Dashboard extends javax.swing.JFrame {
         pnl_headerLayout.setVerticalGroup(
             pnl_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_headerLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(1, 1, 1)
                 .addComponent(logo1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -226,11 +277,11 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        lbl_pagamentos.setFont(lbl_pagamentos.getFont().deriveFont(lbl_pagamentos.getFont().getSize()+7f));
-        lbl_pagamentos.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_pagamentos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_pagamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dollar [#1189].png"))); // NOI18N
-        lbl_pagamentos.setText("PAGAMENTOS");
+        lbl_transferencia.setFont(lbl_transferencia.getFont().deriveFont(lbl_transferencia.getFont().getSize()+7f));
+        lbl_transferencia.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_transferencia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dollar [#1189].png"))); // NOI18N
+        lbl_transferencia.setText("TRANSFERÊNCIA");
 
         javax.swing.GroupLayout pnl_pagamentoLayout = new javax.swing.GroupLayout(pnl_pagamento);
         pnl_pagamento.setLayout(pnl_pagamentoLayout);
@@ -238,14 +289,14 @@ public class Dashboard extends javax.swing.JFrame {
             pnl_pagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_pagamentoLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lbl_pagamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         pnl_pagamentoLayout.setVerticalGroup(
             pnl_pagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_pagamentoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbl_pagamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -429,6 +480,41 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnl_reparticao.setBackground(new java.awt.Color(49, 55, 78));
+        pnl_reparticao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        pnl_reparticao.setPreferredSize(new java.awt.Dimension(161, 71));
+        pnl_reparticao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnl_reparticaoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnl_reparticaoMouseEntered(evt);
+            }
+        });
+
+        lbl_Reparticao.setFont(lbl_Reparticao.getFont().deriveFont(lbl_Reparticao.getFont().getSize()+7f));
+        lbl_Reparticao.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Reparticao.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_Reparticao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/money [#1183].png"))); // NOI18N
+        lbl_Reparticao.setText("REPARTIÇÃO");
+
+        javax.swing.GroupLayout pnl_reparticaoLayout = new javax.swing.GroupLayout(pnl_reparticao);
+        pnl_reparticao.setLayout(pnl_reparticaoLayout);
+        pnl_reparticaoLayout.setHorizontalGroup(
+            pnl_reparticaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_reparticaoLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lbl_Reparticao, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        pnl_reparticaoLayout.setVerticalGroup(
+            pnl_reparticaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_reparticaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_Reparticao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -440,7 +526,8 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(pnl_extrato, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnl_resumo, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnl_solicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnl_pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnl_pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnl_reparticao, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -450,6 +537,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(pnl_resumo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnl_solicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(pnl_reparticao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnl_pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -458,7 +547,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(pnl_dadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pnl_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnl_name1Layout = new javax.swing.GroupLayout(pnl_name1);
@@ -492,7 +581,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnl_name1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_name1Layout.createSequentialGroup()
-                        .addComponent(Scrll_solicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Scrll_solicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addContainerGap())))
         );
 
@@ -509,11 +598,32 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(pnl_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnl_name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(pnl_name1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
-        background1.add(panelMenu, java.awt.BorderLayout.PAGE_START);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1101, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)))
+        );
+
+        background1.add(jPanel2, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -526,7 +636,7 @@ public class Dashboard extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -544,6 +654,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         panelResumo.setVisible(false);
         panelNotificacao.setVisible(true);
+        panelCadastroReparticao.setVisible(false);
         panelPagamento.setVisible(false);
         panelExtrato.setVisible(false);
         panelDadosPessoais.setVisible(false);
@@ -552,6 +663,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void pnl_extratoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_extratoMouseClicked
         resetColor(pnl_resumo);
         resetColor(pnl_solicitacao);
+        resetColor(pnl_reparticao);
         resetColor(pnl_pagamento);
         setColor(pnl_extrato);
         resetColor(pnl_dadosPessoais);
@@ -559,6 +671,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         panelResumo.setVisible(false);
         panelNotificacao.setVisible(false);
+        panelCadastroReparticao.setVisible(false);
         panelPagamento.setVisible(false);
         panelExtrato.setVisible(true);
         panelDadosPessoais.setVisible(false);
@@ -567,6 +680,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void pnl_resumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_resumoMouseClicked
         setColor(pnl_resumo);
         resetColor(pnl_solicitacao);
+        resetColor(pnl_reparticao);
         resetColor(pnl_pagamento);
         resetColor(pnl_extrato);
         resetColor(pnl_dadosPessoais);
@@ -574,6 +688,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         panelResumo.setVisible(true);
         panelNotificacao.setVisible(false);
+        panelCadastroReparticao.setVisible(false);
         panelPagamento.setVisible(false);
         panelExtrato.setVisible(false);
         panelDadosPessoais.setVisible(false);
@@ -582,6 +697,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void pnl_dadosPessoaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_dadosPessoaisMouseClicked
         resetColor(pnl_resumo);
         resetColor(pnl_solicitacao);
+        resetColor(pnl_reparticao);
         resetColor(pnl_pagamento);
         resetColor(pnl_extrato);
         setColor(pnl_dadosPessoais);
@@ -589,6 +705,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         panelResumo.setVisible(false);
         panelNotificacao.setVisible(false);
+        panelCadastroReparticao.setVisible(false);
         panelPagamento.setVisible(false);
         panelExtrato.setVisible(false);
         panelDadosPessoais.setVisible(true);
@@ -601,6 +718,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void pnl_pagamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_pagamentoMouseClicked
         resetColor(pnl_resumo);
         resetColor(pnl_solicitacao);
+        resetColor(pnl_reparticao);
         setColor(pnl_pagamento);
         resetColor(pnl_extrato);
         resetColor(pnl_dadosPessoais);
@@ -608,6 +726,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         panelResumo.setVisible(false);
         panelNotificacao.setVisible(false);
+        panelCadastroReparticao.setVisible(false);
         panelPagamento.setVisible(true);
         panelExtrato.setVisible(false);
         panelDadosPessoais.setVisible(false);
@@ -620,6 +739,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void pnl_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_sairMouseClicked
         resetColor(pnl_resumo);
         resetColor(pnl_solicitacao);
+        resetColor(pnl_reparticao);
         resetColor(pnl_pagamento);
         resetColor(pnl_extrato);
         resetColor(pnl_dadosPessoais);
@@ -629,6 +749,27 @@ public class Dashboard extends javax.swing.JFrame {
     private void panelMenuAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_panelMenuAncestorResized
 
     }//GEN-LAST:event_panelMenuAncestorResized
+
+    private void pnl_reparticaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_reparticaoMouseClicked
+        resetColor(pnl_resumo);
+        resetColor(pnl_solicitacao);
+        setColor(pnl_reparticao);
+        resetColor(pnl_pagamento);
+        resetColor(pnl_extrato);
+        resetColor(pnl_dadosPessoais);
+        resetColor(pnl_sair);
+        
+        panelResumo.setVisible(false);
+        panelNotificacao.setVisible(false);
+        panelCadastroReparticao.setVisible(true);
+        panelPagamento.setVisible(false);
+        panelExtrato.setVisible(false);
+        panelDadosPessoais.setVisible(false);
+    }//GEN-LAST:event_pnl_reparticaoMouseClicked
+
+    private void pnl_reparticaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_reparticaoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnl_reparticaoMouseEntered
 
     /**
      * @param args the command line arguments
@@ -677,14 +818,17 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbl_Reparticao;
     private javax.swing.JLabel lbl_extrato;
     private javax.swing.JLabel lbl_extrato1;
     private javax.swing.JLabel lbl_nome;
-    private javax.swing.JLabel lbl_pagamentos;
     private javax.swing.JLabel lbl_pagamentos1;
     private javax.swing.JLabel lbl_pagamentos2;
     private javax.swing.JLabel lbl_pagamentos3;
+    private javax.swing.JLabel lbl_pagamentos4;
     private javax.swing.JLabel lbl_saldo;
+    private javax.swing.JLabel lbl_transferencia;
     private javax.swing.JLabel logo1;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JPanel pnl_dadosPessoais;
@@ -692,6 +836,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_header;
     private javax.swing.JPanel pnl_name1;
     private javax.swing.JPanel pnl_pagamento;
+    private javax.swing.JPanel pnl_pagamento1;
+    private javax.swing.JPanel pnl_reparticao;
     private javax.swing.JPanel pnl_resumo;
     private javax.swing.JPanel pnl_sair;
     private javax.swing.JPanel pnl_solicitacao;
