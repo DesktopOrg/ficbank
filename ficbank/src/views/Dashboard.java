@@ -455,6 +455,9 @@ public class Dashboard extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnl_sairMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnl_sairMouseEntered(evt);
+            }
         });
 
         lbl_pagamentos3.setFont(lbl_pagamentos3.getFont().deriveFont(lbl_pagamentos3.getFont().getSize()+7f));
@@ -744,6 +747,9 @@ public class Dashboard extends javax.swing.JFrame {
         resetColor(pnl_extrato);
         resetColor(pnl_dadosPessoais);
         setColor(pnl_sair);         // TODO add your handling code here:
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_pnl_sairMouseClicked
 
     private void panelMenuAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_panelMenuAncestorResized
@@ -770,6 +776,10 @@ public class Dashboard extends javax.swing.JFrame {
     private void pnl_reparticaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_reparticaoMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_pnl_reparticaoMouseEntered
+
+    private void pnl_sairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_sairMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnl_sairMouseEntered
 
     /**
      * @param args the command line arguments
@@ -826,7 +836,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_pagamentos1;
     private javax.swing.JLabel lbl_pagamentos2;
     private javax.swing.JLabel lbl_pagamentos3;
-    private javax.swing.JLabel lbl_pagamentos4;
     private javax.swing.JLabel lbl_saldo;
     private javax.swing.JLabel lbl_transferencia;
     private javax.swing.JLabel logo1;
@@ -836,7 +845,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_header;
     private javax.swing.JPanel pnl_name1;
     private javax.swing.JPanel pnl_pagamento;
-    private javax.swing.JPanel pnl_pagamento1;
     private javax.swing.JPanel pnl_reparticao;
     private javax.swing.JPanel pnl_resumo;
     private javax.swing.JPanel pnl_sair;

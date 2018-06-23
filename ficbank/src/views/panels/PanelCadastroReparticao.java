@@ -207,6 +207,11 @@ public class PanelCadastroReparticao extends javax.swing.JPanel {
         );
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
 
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
@@ -288,6 +293,11 @@ public class PanelCadastroReparticao extends javax.swing.JPanel {
             controller.adicionarConta();
         }
     }//GEN-LAST:event_txt_codigo_conta_reparticaoKeyPressed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+        dashboard.navigateToDashboard();
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
 
 

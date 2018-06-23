@@ -7,11 +7,9 @@ package views;
 
 import Model.Cliente;
 import Model.Conta;
-import controllers.DashboardController;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import views.panels.AdmCadCliente;
 import views.panels.AdmCadConta;
@@ -438,6 +436,9 @@ GridBagLayout layout = new GridBagLayout();
         resetColor(pnl_contas);
         resetColor(pnl_requisicoes);
         setColor(pnl_sair);
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_pnl_sairMouseClicked
 
     /**

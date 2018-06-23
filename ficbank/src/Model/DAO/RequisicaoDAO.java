@@ -5,9 +5,11 @@
  */
 package Model.DAO;
 
+import Configurations.ConfigurationsPhpMyAdmin;
 import DataBase.DataBaseGeneric;
 import Model.Interfaces.ImplementRequisicao;
 import Model.Requisicao;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,14 +20,23 @@ import java.util.Map;
  */
 public class RequisicaoDAO extends DataBaseGeneric implements ImplementRequisicao {
 
+    public ArrayList<Requisicao> list;
+    private TransacaoDAO dao;
+    
+    public RequisicaoDAO() {
+        super(new ConfigurationsPhpMyAdmin(), "requisicao");
+    }
+    
     @Override
     public void insert(Requisicao requisicao) {
         Map<Object, Object> mapObj = new HashMap<>();
-        mapObj.put("id_conta", requisicao.getConta().getId());
+        mapObj.put("id_conta_requisicao", requisicao.getConta().getId());
         // mapObj.put("id_tag", transacao.getTag().getId());
         mapObj.put("valor", requisicao.getValor());
         mapObj.put("data", new Date());
-        mapObj.put("tipo", 4);
+        mapObj.put("aprovado", 0);
+        mapObj.put("visualizado", 0);
+        mapObj.put("id_transacao", requisicao.getTransacao().getId());
         
         this.genericInsert(mapObj);
     }

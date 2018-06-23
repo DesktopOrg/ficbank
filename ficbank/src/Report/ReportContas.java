@@ -32,7 +32,7 @@ public class ReportContas {
     private static final String url      = "jdbc:mysql://localhost/ficbank";
     private static final String driver   = "com.mysql.jdbc.Driver";
     private static final String user     = "root";
-    private static final String password = "senhaSQL";
+    private static final String password = "";
  
     public ReportContas(){
        

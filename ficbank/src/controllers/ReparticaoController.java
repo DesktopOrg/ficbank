@@ -7,10 +7,13 @@ package controllers;
 
 import Model.Conta;
 import Model.DAO.ContaDAO;
+import Model.DAO.RequisicaoDAO;
 import Model.DAO.TransacaoDAO;
+import Model.Requisicao;
 import Model.TipoEnum;
 import Model.Transacao;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -124,14 +127,16 @@ public class ReparticaoController {
                 TransacaoDAO dao = new TransacaoDAO();
                 System.out.println(panel.getDashboard().conta.getId());
                 Transacao transacao = new Transacao(panel.getDashboard().conta, debitoTotal, TipoEnum.REQUISICAO);
-                int id = dao.insert(transacao);
+                transacao.setId(dao.insert(transacao));
                 
-                // Cadastrar Transação (1 transação para muitos usuarios na transação)
-                // Campos: id, Valor Total, Valor Repartido, data_criada
-                
-                
-                // Cadastrar Usuarios da transação
-                // Campos: id, id_transacao, id_conta_criador, id_conta_repartidor, aprovado
+                RequisicaoDAO requisicaoDAO = new RequisicaoDAO();
+                for (Conta conta : contasReparticaoList) {
+                    Requisicao requisicao = new Requisicao(0, debitoTotal / contasReparticaoList.size(), new Date(), false, false, transacao, conta);
+                    requisicaoDAO.insert(requisicao);
+                }
+                limparCamposCadastroContaReparticao();
+                contasReparticaoList = new ArrayList<>();
+                modelList.removeAllElements();
             } else {
                 JOptionPane.showMessageDialog(null, "Lista de contas para repartir o debito vazia! Adicione mais conta.", "Erro ao salvar", JOptionPane.ERROR_MESSAGE);
             }
