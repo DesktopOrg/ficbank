@@ -13,7 +13,7 @@ import java.util.List;
  * @author kassia
  */
 public interface ImplementTransacao {
-    public void insert(Transacao transacao);
+    public int insert(Transacao transacao);
     
     public void update(Transacao transacao);
     
@@ -22,4 +22,6 @@ public interface ImplementTransacao {
     public List<Transacao> getTrasacaoPorUser(int id);
     
     public Transacao getUmaTransacao(int id);
+    
+    public int getIdUltimaTransacao();
 }

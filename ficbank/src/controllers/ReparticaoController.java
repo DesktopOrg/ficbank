@@ -122,8 +122,9 @@ public class ReparticaoController {
             double debitoTotal = Double.parseDouble(panel.getTxt_total_dabito().getText());
             if (!contasReparticaoList.isEmpty()) {
                 TransacaoDAO dao = new TransacaoDAO();
+                System.out.println(panel.getDashboard().conta.getId());
                 Transacao transacao = new Transacao(panel.getDashboard().conta, debitoTotal, TipoEnum.REQUISICAO);
-                dao.insert(transacao);
+                int id = dao.insert(transacao);
                 
                 // Cadastrar Transação (1 transação para muitos usuarios na transação)
                 // Campos: id, Valor Total, Valor Repartido, data_criada

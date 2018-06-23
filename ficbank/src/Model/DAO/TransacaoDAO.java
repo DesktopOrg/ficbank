@@ -9,7 +9,10 @@ import Configurations.ConfigurationsPhpMyAdmin;
 import DataBase.DataBaseGeneric;
 import Model.Interfaces.ImplementTransacao;
 import Model.Transacao;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,19 +27,20 @@ public class TransacaoDAO extends DataBaseGeneric implements ImplementTransacao 
     
     public TransacaoDAO() {
         super(new ConfigurationsPhpMyAdmin(), "transacao");
-        dao = new TransacaoDAO();
     }
     
     @Override
-    public void insert(Transacao transacao) {
+    public int insert(Transacao transacao) {
         Map<Object, Object> mapObj = new HashMap<>();
         mapObj.put("id_conta", transacao.getConta().getId());
-        mapObj.put("id_tag", transacao.getTag().getId());
+        // mapObj.put("id_tag", transacao.getTag().getId());
         mapObj.put("valor", transacao.getValor());
-        // mapObj.put("data", new Date());
-        mapObj.put("tipo", transacao.getTipo());
+        mapObj.put("data", new Date());
+        mapObj.put("tipo", 4);
         
         this.genericInsert(mapObj);
+        
+        return this.getIdUltimaTransacao();
     }
 
     @Override
@@ -57,6 +61,21 @@ public class TransacaoDAO extends DataBaseGeneric implements ImplementTransacao 
     @Override
     public Transacao getUmaTransacao(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getIdUltimaTransacao() {
+        ResultSet rs = this.getLastId();
+        int id = 0;
+        try {
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
+            return id;
+        } catch (SQLException ex) {
+            System.out.println("Erro ao retornar uma conta pelo id: " + ex.getMessage());
+        }
+        return 0;
     }
     
 }

@@ -85,6 +85,14 @@ public class DataBaseGeneric extends DataBase {
         return this.query("SELECT * FROM " + this.table + " WHERE " + field + " LIKE '%" + value + "%'");
     }
     
+    public ResultSet getLastId() {
+        this.checkConnection();
+        if (!this.checkEmptyTable()) {
+            return null;
+        }
+        return this.query("SELECT MAX(id) FROM " + this.table);
+    }
+    
     public void genericInsert(Map<Object, Object> mapObj){
         this.checkConnection();
         if(!this.checkEmptyTable())

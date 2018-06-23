@@ -127,6 +127,12 @@ public class PanelCadastroReparticao extends javax.swing.JPanel {
 
         jLabel3.setText("Código de repartição do usuário a Repartir");
 
+        txt_codigo_conta_reparticao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_codigo_conta_reparticaoKeyPressed(evt);
+            }
+        });
+
         btn_adicionar_conta.setText("Adicionar Conta");
         btn_adicionar_conta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,6 +281,13 @@ public class PanelCadastroReparticao extends javax.swing.JPanel {
         // TODO add your handling code here:
         controller.salvarReparticao();
     }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void txt_codigo_conta_reparticaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigo_conta_reparticaoKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            controller.adicionarConta();
+        }
+    }//GEN-LAST:event_txt_codigo_conta_reparticaoKeyPressed
 
 
 
